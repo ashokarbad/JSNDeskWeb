@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support — JSON Desk</title>
+  <meta name="description" content="Get help with JSON Desk for macOS: contact support, back up your library, and answers to common questions.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="icon.png" alt="" width="30" height="30">JSON Desk</a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="nav-optional" href="index.html#features">Features</a>
+        <a href="support.html" aria-current="page">Support</a>
+        <a href="privacy-policy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="doc">
+    <div class="wrap">
+      <h1>Support</h1>
+      <p class="meta">Help with JSON Desk for macOS</p>
+
+      <div class="contact">
+        <div>
+          <h2>Email us</h2>
+          <p>Bug reports, feature requests and questions all go to the same inbox. You'll usually hear back within two working days.</p>
+        </div>
+        <a class="btn btn-primary" href="mailto:ashokarbad@gmail.com?subject=JSON%20Desk%20support">Email support</a>
+      </div>
+
+      <h2 id="report">What to include in a bug report</h2>
+      <ul>
+        <li>Your JSON Desk version (JSON Desk menu → About JSON Desk) and macOS version.</li>
+        <li>The screen you were on and the steps that lead to the problem.</li>
+        <li>What you expected to happen, and what happened instead.</li>
+        <li>A small sample of JSON that shows the problem, if one is involved. Remove passwords, tokens and personal data first.</li>
+        <li>A screenshot or screen recording, if it helps.</li>
+      </ul>
+
+      <h2 id="faq">Common questions</h2>
+
+      <details>
+        <summary>What do I need to run JSON Desk?</summary>
+        <div><p>A Mac running macOS 14 Sonoma or later.</p></div>
+      </details>
+
+      <details>
+        <summary>Where is my data stored?</summary>
+        <div>
+          <p>Your library (documents, projects, requests, schemas, queries and Recently Deleted) is a single file called <code>store.json</code>, inside the app's sandbox container on your Mac. To find it, open Finder, choose Go → Go to Folder, enter <code>~/Library/Containers</code>, open the JSON Desk folder, then go to <code>Data/Library/Application Support/JsonStudio</code>.</p>
+          <p>The folder is named JsonStudio so libraries from earlier versions keep loading. Preferences and recent tool inputs are kept in macOS user defaults.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I back up my library or move it to another Mac?</summary>
+        <div>
+          <p>Go to Settings and choose Export. This writes your whole library to one JSON file. On the other Mac, open Settings and choose Import, then pick that file.</p>
+          <p>Import replaces the library on that Mac; it doesn't merge with it. Export a backup there first if it has documents you want to keep.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I deleted something by mistake. Can I get it back?</summary>
+        <div><p>Open Recently Deleted in the Library section of the sidebar and restore it. Deleted items are kept for the period set in Settings, then removed for good. Once an item is removed from Recently Deleted, it can only come back from a backup.</p></div>
+      </details>
+
+      <details>
+        <summary>The app started with an empty library. Is my data gone?</summary>
+        <div>
+          <p>Probably not. If JSON Desk can't read the library file, it first saves a copy named <code>store.unreadable-&lt;date&gt;.json</code> in the same folder, then starts a fresh library. Nothing is overwritten.</p>
+          <p>Email us with that file attached, or a description of what it contains, and we'll help you recover it. If you have a backup, you can also import it from Settings.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Does locking a document encrypt it?</summary>
+        <div><p>No. Locking makes a document read-only so it can't be edited by accident. The library is stored as plain JSON, protected by your Mac user account and FileVault. Avoid keeping live production secrets in saved requests or documents.</p></div>
+      </details>
+
+      <details>
+        <summary>Why does the app need network access?</summary>
+        <div><p>Only for the API Client. When you send a request, it goes straight from your Mac to the URL you entered. The app doesn't contact any other server, and there is no analytics or update check of its own.</p></div>
+      </details>
+
+      <details>
+        <summary>Is my JWT secret saved?</summary>
+        <div><p>No. The secret you enter to verify or sign a token is never written to disk, so you'll need to enter it again after you quit the app.</p></div>
+      </details>
+
+      <details>
+        <summary>Will formatting change my keys or numbers?</summary>
+        <div><p>No. JSON Desk keeps keys in their original order and leaves number literals exactly as written, so <code>1.50</code> stays <code>1.50</code>. Keys are only reordered if you turn on the sort-keys option in the Formatter.</p></div>
+      </details>
+
+      <details>
+        <summary>Are there keyboard shortcuts?</summary>
+        <div><p><kbd>⌘</kbd> <kbd>K</kbd> opens the command palette, where you can jump to any screen or action. <kbd>⌘</kbd> <kbd>F</kbd> searches the current editor or output.</p></div>
+      </details>
+
+      <details>
+        <summary>How do I remove JSON Desk and all its data?</summary>
+        <div><p>Export a backup first if you want to keep anything. Then drag JSON Desk from Applications to the Trash, and delete its folder from <code>~/Library/Containers</code> to remove the library and settings.</p></div>
+      </details>
+
+      <h2 id="more">More</h2>
+      <p>See the <a href="privacy-policy.html">Privacy Policy</a> for how your data is handled, and the <a href="terms-of-service.html">Terms of Service</a> for the conditions of use.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Ashok Arbad</span>
+      <nav aria-label="Footer">
+        <a href="support.html">Support</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

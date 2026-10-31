@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — JSON Desk</title>
+  <meta name="description" content="How JSON Desk handles your data: no account, no analytics, everything stored locally on your Mac.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="icon.png" alt="" width="30" height="30">JSON Desk</a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="nav-optional" href="index.html#features">Features</a>
+        <a href="support.html">Support</a>
+        <a href="privacy-policy.html" aria-current="page">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="doc">
+    <div class="wrap">
+      <h1>Privacy Policy</h1>
+      <p class="meta">Effective October 31, 2026</p>
+
+      <div class="summary">
+        <h2>The short version</h2>
+        <ul>
+          <li>JSON Desk does not collect, track or sell any data about you.</li>
+          <li>Everything you create is stored on your Mac, in the app's sandbox.</li>
+          <li>The app only connects to the internet when you send a request from the API Client, and only to the address you entered.</li>
+          <li>If you email for support, your email is used to reply to you and nothing else.</li>
+        </ul>
+      </div>
+
+      <h2 id="who">Who we are</h2>
+      <p>JSON Desk is made by Ashok Arbad, an independent developer based in Pune, India ("we", "us"). This policy covers the JSON Desk app for macOS and this website.</p>
+
+      <h2 id="collect">What we collect</h2>
+      <p>Nothing through the app. JSON Desk has no account system, no analytics, no advertising, no crash-reporting service of its own, and no third-party libraries or SDKs. We have no server that receives your documents, settings or usage.</p>
+
+      <h2 id="local">What the app stores on your Mac</h2>
+      <p>To work, JSON Desk saves the following on your Mac, inside its macOS sandbox container. None of it is sent to us.</p>
+      <ul>
+        <li><strong>Your library.</strong> Documents, projects, folders, tags, saved API requests, schemas, JSONPath queries and Recently Deleted items, kept in a single file named <code>store.json</code>.</li>
+        <li><strong>Preferences and recent tool inputs.</strong> Settings such as theme and font size, and the last values you entered on the Tools screens, kept in macOS user defaults.</li>
+        <li><strong>A recovery copy, if needed.</strong> If the library file can't be read, the app keeps a copy named <code>store.unreadable-&lt;timestamp&gt;.json</code> before starting a fresh library, so nothing is lost.</li>
+      </ul>
+      <p>JWT signing secrets you type into the JWT screen are held in memory only and are never written to disk.</p>
+      <p>Your library is stored as plain, unencrypted JSON. It is protected by your macOS user account, FileVault if you have it turned on, and the app sandbox. Locking a document in JSON Desk makes it read-only; it is not encryption. If you save requests that contain API keys or tokens in their headers, those values are stored in the library file and in any backup you export.</p>
+
+      <h2 id="network">Network connections</h2>
+      <p>JSON Desk connects to the internet in one situation: when you send a request from the API Client or run a saved request. The request goes directly from your Mac to the URL you entered, with the headers and body you wrote. It does not pass through any server of ours.</p>
+      <p>The server you contact will receive that request and your IP address, and its own privacy policy applies to what it does with them. Only send requests to services you trust and are allowed to use.</p>
+
+      <h2 id="files">Files you choose</h2>
+      <p>The app asks macOS for access to files only when you export or import a backup, and only to the file you pick in the Save or Open dialog. A backup file contains your whole library, so store and share it with the same care as the original.</p>
+
+      <h2 id="apple">Apple and the App Store</h2>
+      <p>If you download JSON Desk from the Mac App Store, Apple handles the purchase, download and updates, under <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>. If you have chosen in macOS to share analytics with app developers, Apple may pass us anonymized crash reports and usage statistics for JSON Desk. We use these only to fix bugs. You can turn this off in System Settings → Privacy &amp; Security → Analytics &amp; Improvements.</p>
+
+      <h2 id="support">When you contact us</h2>
+      <p>If you email us, we receive your email address and whatever you include in the message, such as screenshots or sample JSON. We use it only to answer you and fix the problem you reported. We don't add you to a mailing list or share your message with anyone. We delete support emails once the issue is resolved and they are no longer needed. Please remove passwords, tokens and personal data from any JSON you send.</p>
+
+      <h2 id="website">This website</h2>
+      <p>This website does not use cookies, analytics or tracking. Pages load fonts from Google Fonts, which means your browser connects to Google's servers and Google receives your IP address. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> for how they handle it.</p>
+
+      <h2 id="children">Children</h2>
+      <p>JSON Desk is a developer tool and isn't directed at children. Since we don't collect personal data through the app, we don't knowingly collect data from anyone, including children.</p>
+
+      <h2 id="rights">Your rights</h2>
+      <p>Depending on where you live, laws such as India's Digital Personal Data Protection Act, 2023, or the EU and UK GDPR give you rights to access, correct or delete personal data held about you. The only personal data we could hold is a support email you sent us. To see or delete it, write to the address below and we'll act on it within 30 days.</p>
+      <p>Everything in the app is under your control already: delete documents in the app, or delete the app and its container to remove all of its data from your Mac.</p>
+
+      <h2 id="changes">Changes to this policy</h2>
+      <p>If we change how JSON Desk handles data, we'll update this page and the effective date above before the change ships. If a future version ever collects data, it will be described here first.</p>
+
+      <h2 id="contact">Contact</h2>
+      <p>Questions about privacy: <a href="mailto:ashokarbad@gmail.com?subject=JSON%20Desk%20privacy">ashokarbad@gmail.com</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Ashok Arbad</span>
+      <nav aria-label="Footer">
+        <a href="support.html">Support</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

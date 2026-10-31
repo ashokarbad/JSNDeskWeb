@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSON Desk — JSON tools for your Mac</title>
+  <meta name="description" content="JSON Desk is a native macOS app to format, validate, explore, compare, query, generate and convert JSON. No account, no analytics, your data stays on your Mac.">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="JSON Desk">
+  <meta property="og:description" content="Format, validate and explore JSON without leaving your Mac.">
+  <meta property="og:image" content="icon.png">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="icon.png" alt="" width="30" height="30">JSON Desk</a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="nav-optional" href="#features">Features</a>
+        <a href="support.html">Support</a>
+        <a href="privacy-policy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <img class="hero-icon" src="icon.png" alt="JSON Desk app icon" width="88" height="88">
+          <h1>Format, validate and explore JSON on your Mac.</h1>
+          <p class="lede">JSON Desk is a native macOS app for everyday JSON work. It keeps your documents organized in projects, and nothing leaves your Mac unless you send a request yourself.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://apps.apple.com/app/id6827042635">Download on the Mac App Store</a>
+            <a class="btn btn-quiet" href="support.html">Get help</a>
+          </div>
+          <p class="hero-req">Requires macOS 14 Sonoma or later.</p>
+        </div>
+
+        <div class="window" aria-label="Example of the Formatter screen">
+          <div class="window-bar">
+            <div class="lights" aria-hidden="true"><span></span><span></span><span></span></div>
+            <span class="window-title">invoice.json</span>
+            <div class="segmented" role="group" aria-label="Output style">
+              <button type="button" data-mode="pretty" aria-pressed="true">Pretty</button>
+              <button type="button" data-mode="minify" aria-pressed="false">Minify</button>
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="mock-sidebar" aria-hidden="true">
+              <p>Workspace</p>
+              <ul>
+                <li class="on">Formatter</li>
+                <li>Validator</li>
+                <li>Explorer</li>
+                <li>Compare</li>
+                <li>JSONPath</li>
+              </ul>
+              <p>Library</p>
+              <ul>
+                <li>JSON Store</li>
+                <li>Schema</li>
+              </ul>
+            </div>
+            <div class="mock-editor">
+              <pre class="code" id="demo-code" aria-live="polite"></pre>
+              <div class="statusbar"><span class="ok">Valid JSON</span><span id="demo-stat">Key order preserved</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="wrap">
+        <h2>What's in the sidebar</h2>
+        <p class="intro">Fourteen screens grouped the way you work: edit in the Workspace, keep things in the Library, reach for Tools when you need them.</p>
+
+        <div class="group workspace">
+          <h3 class="group-name">Workspace</h3>
+          <dl>
+            <div><dt>Formatter</dt><dd>Pretty-print, minify or escape JSON, with indent, sort-keys and Unicode-escape options.</dd></div>
+            <div><dt>Validator</dt><dd>Shows the exact line and column of every error.</dd></div>
+            <div><dt>Explorer</dt><dd>Browse a document as a collapsible tree, a table, or raw text.</dd></div>
+            <div><dt>Compare</dt><dd>Diff two documents and jump from one change to the next.</dd></div>
+            <div><dt>JSONPath</dt><dd>Run JSONPath queries with autocomplete and a built-in cheat sheet.</dd></div>
+          </dl>
+        </div>
+
+        <div class="group library">
+          <h3 class="group-name">Library</h3>
+          <dl>
+            <div><dt>JSON Store</dt><dd>Projects, folders and documents, with tags, favorites, locking, search and drag and drop.</dd></div>
+            <div><dt>Schema</dt><dd>Generate a JSON Schema from sample data, or validate a document against one.</dd></div>
+            <div><dt>Projects</dt><dd>One dashboard per project for its documents, requests, schemas and queries. Pin the ones you use most.</dd></div>
+            <div><dt>Recently Deleted</dt><dd>Deleted items wait here for a period you choose, so you can restore them.</dd></div>
+          </dl>
+        </div>
+
+        <div class="group tools">
+          <h3 class="group-name">Tools</h3>
+          <dl>
+            <div><dt>Generator</dt><dd>Create sample JSON from an example document or a JSON Schema.</dd></div>
+            <div><dt>Converter</dt><dd>Turn JSON into YAML, CSV, XML, or Swift and Kotlin model code.</dd></div>
+            <div><dt>API Client</dt><dd>Send HTTP requests with custom headers and a body, then inspect the response.</dd></div>
+            <div><dt>Mock Generator</dt><dd>Build fake records with names, emails, dates and more from a list of fields.</dd></div>
+            <div><dt>JWT</dt><dd>Decode tokens, verify HS256, HS384 and HS512 signatures, and create signed tokens.</dd></div>
+          </dl>
+        </div>
+
+        <div class="group settings">
+          <h3 class="group-name">Settings</h3>
+          <dl>
+            <div><dt>Look and feel</dt><dd>Theme, accent color, code font size and line wrapping.</dd></div>
+            <div><dt>Your defaults</dt><dd>Formatter options, request timeout, the screen to open on launch, and how long deleted items are kept.</dd></div>
+            <div><dt>Backups</dt><dd>Export the whole library to a single JSON file, and import it on any Mac.</dd></div>
+          </dl>
+        </div>
+
+        <div class="shortcuts">
+          <span><kbd>⌘</kbd> <kbd>K</kbd> opens the command palette</span>
+          <span><kbd>⌘</kbd> <kbd>F</kbd> searches the current editor</span>
+          <span>Save results from most screens straight into a project</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="privacy">
+      <div class="wrap">
+        <div class="local">
+          <div>
+            <h2>Your JSON stays on your Mac</h2>
+            <p class="intro" style="margin-bottom:20px">JSON often holds customer records, API keys and tokens. JSON Desk is built so that none of it goes anywhere you didn't send it.</p>
+            <a href="privacy-policy.html">Read the privacy policy</a>
+          </div>
+          <ul>
+            <li><strong>No account, no analytics</strong><span>There's nothing to sign up for, and the app has no tracking or third-party code.</span></li>
+            <li><strong>One local library file</strong><span>Projects and documents live in a single file inside the app's sandbox. Export a backup whenever you like.</span></li>
+            <li><strong>Network only when you ask</strong><span>The only outgoing connections are the requests you send from the API Client, to the URLs you enter.</span></li>
+            <li><strong>Secrets aren't saved</strong><span>JWT signing secrets are kept in memory only and never written to disk.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Ashok Arbad</span>
+      <nav aria-label="Footer">
+        <a href="support.html">Support</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var source = '{"invoice":"INV-2048","customer":{"name":"Meera Joshi","email":"meera@example.com"},"paid":true,"total":129.5,"items":[{"sku":"A-17","qty":2},{"sku":"B-03","qty":1}],"note":null}';
+      var data = JSON.parse(source);
+      var pre = document.getElementById('demo-code');
+      var buttons = document.querySelectorAll('.segmented button');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function esc(s) {
+        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+
+      function highlight(text) {
+        var re = /("(?:\\.|[^"\\])*")(\s*:)?|\b(true|false|null)\b|(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)/g;
+        var out = '', last = 0, m;
+        while ((m = re.exec(text))) {
+          out += esc(text.slice(last, m.index));
+          if (m[1]) {
+            out += m[2]
+              ? '<span class="t-key">' + esc(m[1]) + '</span>' + esc(m[2])
+              : '<span class="t-str">' + esc(m[1]) + '</span>';
+          } else if (m[3]) {
+            out += '<span class="t-lit">' + m[3] + '</span>';
+          } else {
+            out += '<span class="t-num">' + m[4] + '</span>';
+          }
+          last = re.lastIndex;
+        }
+        return out + esc(text.slice(last));
+      }
+
+      function render(mode, animate) {
+        var text = mode === 'pretty' ? JSON.stringify(data, null, 2) : JSON.stringify(data);
+        var lines = text.split('\n');
+        pre.classList.toggle('is-animating', !!animate && !reduce);
+        pre.innerHTML = lines.map(function (line, i) {
+          var delay = animate ? ' style="animation-delay:' + (i * 35) + 'ms"' : '';
+          return '<span class="line"' + delay + '>' + highlight(line) + '</span>';
+        }).join('');
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.dataset.mode === mode));
+        });
+      }
+
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () { render(b.dataset.mode, true); });
+      });
+
+      // Start minified, then format once, so the first thing you see is the app's core job.
+      if (reduce) {
+        render('pretty', false);
+      } else {
+        render('minify', false);
+        setTimeout(function () { render('pretty', true); }, 900);
+      }
+    })();
+  </script>
+</body>
+</html>
