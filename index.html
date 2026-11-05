@@ -3,19 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON Desk — JSON tools for your Mac</title>
-  <meta name="description" content="JSON Desk is a native macOS app to format, validate, explore, compare, query, generate and convert JSON. No account, no analytics, your data stays on your Mac.">
+  <title>JSON Desk: format, convert and test JSON on your Mac</title>
+  <meta name="description" content="JSON Desk is a free, native macOS app with fourteen JSON tools: a multi-format formatter, validator, explorer, diff, JSONPath, converter with model code in eight languages, API client, JWT tools and a local library. No account, no analytics.">
   <link rel="canonical" href="https://ashokarbad.github.io/JSNDeskWeb/">
   <meta name="color-scheme" content="light dark">
-  <meta property="og:title" content="JSON Desk">
-  <meta property="og:description" content="Format, validate and explore JSON without leaving your Mac.">
+  <meta name="theme-color" content="#F5F6FB" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E1118" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="JSON Desk for Mac">
+  <meta property="og:description" content="Format, convert and test JSON on your Mac. Free, native, and private.">
+  <meta property="og:url" content="https://ashokarbad.github.io/JSNDeskWeb/">
   <meta property="og:image" content="https://ashokarbad.github.io/JSNDeskWeb/icon.png">
+  <meta name="twitter:card" content="summary">
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "JSON Desk",
+    "operatingSystem": "macOS 14.0 or later",
+    "applicationCategory": "DeveloperApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "downloadUrl": "https://apps.apple.com/app/id6827042635",
+    "author": { "@type": "Person", "name": "Ashok Arbad" }
+  }
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -24,201 +41,408 @@
     <div class="wrap">
       <a class="brand" href="./"><img src="icon.png" alt="" width="30" height="30">JSON Desk</a>
       <nav class="site-nav" aria-label="Main">
-        <a class="nav-optional" href="#features">Features</a>
-        <a href="support">Support</a>
+        <a class="nav-wide" href="#features">Features</a>
+        <a class="nav-wide" href="#api-client">API Client</a>
         <a href="privacy-policy">Privacy</a>
+        <a href="support">Support</a>
+        <a class="btn btn-primary btn-sm nav-wide" href="https://apps.apple.com/app/id6827042635">Download</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
+
+    <!-- Hero -->
     <section class="hero">
       <div class="wrap">
-        <div>
-          <img class="hero-icon" src="icon.png" alt="JSON Desk app icon" width="88" height="88">
-          <h1>Format, validate and explore JSON on your Mac.</h1>
-          <p class="lede">JSON Desk is a native macOS app for everyday JSON work. It keeps your documents organized in projects, and nothing leaves your Mac unless you send a request yourself.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://apps.apple.com/app/id6827042635">Download on the Mac App Store</a>
-            <a class="btn btn-quiet" href="support">Get help</a>
-          </div>
-          <p class="hero-req">Requires macOS 14 Sonoma or later.</p>
+        <img class="hero-icon" src="icon.png" alt="JSON Desk app icon" width="96" height="96">
+        <h1>Format, convert and test JSON on your Mac.</h1>
+        <p class="lede">Fourteen tools in one native window: a formatter that also reads XML, YAML and TOML, a converter that writes model code in eight languages, an API client, and a library that keeps it all organized. Nothing leaves your Mac unless you send it.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://apps.apple.com/app/id6827042635">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+            Download free on the Mac App Store
+          </a>
+          <a class="btn btn-quiet" href="#features">See what's inside</a>
         </div>
+        <p class="hero-meta">Free. Requires macOS 14 Sonoma or later.</p>
 
-        <div class="window" aria-label="Example of the Formatter screen">
-          <div class="window-bar">
-            <div class="lights" aria-hidden="true"><span></span><span></span><span></span></div>
-            <span class="window-title">invoice.json</span>
-            <div class="segmented" role="group" aria-label="Output style">
-              <button type="button" data-mode="pretty" aria-pressed="true">Pretty</button>
-              <button type="button" data-mode="minify" aria-pressed="false">Minify</button>
+        <div class="hero-stage">
+          <div class="window" role="group" aria-label="Interactive example of the Converter screen">
+            <div class="titlebar">
+              <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
+              <span class="titlebar-title">JSON Desk</span>
+              <div class="titlebar-tools" aria-hidden="true"><span class="chip"><kbd>⌘K</kbd> Command palette</span></div>
             </div>
-          </div>
-          <div class="window-body">
-            <div class="mock-sidebar" aria-hidden="true">
-              <p>Workspace</p>
-              <ul>
-                <li class="on">Formatter</li>
-                <li>Validator</li>
-                <li>Explorer</li>
-                <li>Compare</li>
-                <li>JSONPath</li>
-              </ul>
-              <p>Library</p>
-              <ul>
-                <li>JSON Store</li>
-                <li>Schema</li>
-              </ul>
-            </div>
-            <div class="mock-editor">
-              <pre class="code" id="demo-code" aria-live="polite"></pre>
-              <div class="statusbar"><span class="ok">Valid JSON</span><span id="demo-stat">Key order preserved</span></div>
+            <div class="app">
+              <div class="app-sidebar" aria-hidden="true">
+                <h4>Workspace</h4>
+                <ul class="g-work"><li>Formatter</li><li>Validator</li><li>Explorer</li><li>Compare</li><li>JSONPath</li></ul>
+                <h4>Library</h4>
+                <ul class="g-lib"><li>JSON Store</li><li>Schema</li><li>Projects</li><li>Recently Deleted</li></ul>
+                <h4>Tools</h4>
+                <ul class="g-tools"><li>Generator</li><li class="on">Converter</li><li>API Client</li><li>Mock Generator</li><li>JWT</li></ul>
+              </div>
+              <div class="app-main">
+                <div class="app-toolbar">
+                  <h3>Converter</h3>
+                  <span class="chip">From: JSON</span>
+                  <span class="swap" aria-hidden="true">⇄</span>
+                  <span class="chip">To: <span id="demo-target">Swift</span></span>
+                </div>
+                <div class="panes">
+                  <div class="pane pane-input">
+                    <div class="pane-head">Input <span style="margin-left:auto;font-weight:500">user.json</span></div>
+<pre class="code" id="demo-input" data-json aria-label="Input JSON">
+{
+  "id": 1042,
+  "name": "Meera Joshi",
+  "email": "meera@example.com",
+  "verified": true,
+  "plan": {
+    "tier": "pro",
+    "seats": 5
+  },
+  "tags": ["design", "api"]
+}
+</pre>
+                  </div>
+                  <div class="pane">
+                    <div class="tabs" role="tablist" aria-label="Output format">
+                      <button type="button" role="tab" data-lang="swift" aria-selected="true">Swift</button>
+                      <button type="button" role="tab" data-lang="kotlin" aria-selected="false" tabindex="-1">Kotlin</button>
+                      <button type="button" role="tab" data-lang="typescript" aria-selected="false" tabindex="-1">TypeScript</button>
+                      <button type="button" role="tab" data-lang="go" aria-selected="false" tabindex="-1">Go</button>
+                      <button type="button" role="tab" data-lang="python" aria-selected="false" tabindex="-1">Python</button>
+                      <button type="button" role="tab" data-lang="yaml" aria-selected="false" tabindex="-1">YAML</button>
+                      <button type="button" role="tab" data-lang="xml" aria-selected="false" tabindex="-1">XML</button>
+                      <button type="button" role="tab" data-lang="toml" aria-selected="false" tabindex="-1">TOML</button>
+                    </div>
+                    <pre class="code" id="demo-output" role="tabpanel" aria-live="polite" aria-label="Converted output"></pre>
+                  </div>
+                </div>
+                <div class="statusbar"><span class="status-ok">Valid JSON</span><span id="demo-lines">13 lines</span></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Formats -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Speaks more than JSON</h2>
+          <p>The files you get handed are rarely just JSON. JSON Desk reads, tidies and converts the formats that sit around it.</p>
+        </div>
+        <div class="formats">
+          <div>
+            <h3>Format and encode</h3>
+            <p>Pick a language on the Formatter's input to pretty-print it, or encode and decode text.</p>
+            <ul aria-label="Formatter languages">
+              <li>JSON</li><li>XML</li><li>YAML</li><li>CSV</li><li>Plist</li><li>TOML</li><li>Properties</li><li>.env</li><li>Base64</li><li>URL</li><li>Unicode</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Convert data</h3>
+            <p>Choose the input and output formats separately, and swap them with one click.</p>
+            <ul aria-label="Converter data formats">
+              <li>JSON</li><li>YAML</li><li>CSV</li><li>TSV</li><li>XML</li><li>TOML</li><li>Properties</li><li>plist</li><li>Query string</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Generate model code</h3>
+            <p>Turn a sample response into typed models, ready to paste into your project.</p>
+            <ul aria-label="Model code languages">
+              <li>Swift</li><li>Kotlin</li><li>TypeScript</li><li>Java</li><li>Dart</li><li>Go</li><li>C#</li><li>Python</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature directory -->
     <section class="section" id="features">
       <div class="wrap">
-        <h2>What's in the sidebar</h2>
-        <p class="intro">Fourteen screens grouped the way you work: edit in the Workspace, keep things in the Library, reach for Tools when you need them.</p>
-
-        <div class="group workspace">
-          <h3 class="group-name">Workspace</h3>
-          <dl>
-            <div><dt>Formatter</dt><dd>Pretty-print, minify or escape JSON, with indent, sort-keys and Unicode-escape options.</dd></div>
-            <div><dt>Validator</dt><dd>Shows the exact line and column of every error.</dd></div>
-            <div><dt>Explorer</dt><dd>Browse a document as a collapsible tree, a table, or raw text.</dd></div>
-            <div><dt>Compare</dt><dd>Diff two documents and jump from one change to the next.</dd></div>
-            <div><dt>JSONPath</dt><dd>Run JSONPath queries with autocomplete and a built-in cheat sheet.</dd></div>
-          </dl>
+        <div class="section-head">
+          <h2>Everything in the sidebar</h2>
+          <p>Fourteen screens, grouped the way you work: edit in the Workspace, keep things in the Library, and reach for Tools when you need them.</p>
         </div>
 
-        <div class="group library">
-          <h3 class="group-name">Library</h3>
-          <dl>
-            <div><dt>JSON Store</dt><dd>Projects, folders and documents, with tags, favorites, locking, search and drag and drop.</dd></div>
-            <div><dt>Schema</dt><dd>Generate a JSON Schema from sample data, or validate a document against one.</dd></div>
-            <div><dt>Projects</dt><dd>One dashboard per project for its documents, requests, schemas and queries. Pin the ones you use most.</dd></div>
-            <div><dt>Recently Deleted</dt><dd>Deleted items wait here for a period you choose, so you can restore them.</dd></div>
-          </dl>
-        </div>
+        <div class="directory">
+          <nav class="dir-nav" aria-label="Features">
+            <p>Workspace</p>
+            <ul class="g-workspace">
+              <li><a href="#f-formatter">Formatter</a></li>
+              <li><a href="#f-validator">Validator</a></li>
+              <li><a href="#f-explorer">Explorer</a></li>
+              <li><a href="#f-compare">Compare</a></li>
+              <li><a href="#f-jsonpath">JSONPath</a></li>
+            </ul>
+            <p>Library</p>
+            <ul class="g-library">
+              <li><a href="#f-store">JSON Store</a></li>
+              <li><a href="#f-schema">Schema</a></li>
+              <li><a href="#f-projects">Projects</a></li>
+              <li><a href="#f-deleted">Recently Deleted</a></li>
+            </ul>
+            <p>Tools</p>
+            <ul class="g-tools">
+              <li><a href="#f-generator">Generator</a></li>
+              <li><a href="#f-converter">Converter</a></li>
+              <li><a href="#f-api">API Client</a></li>
+              <li><a href="#f-mock">Mock Generator</a></li>
+              <li><a href="#f-jwt">JWT</a></li>
+            </ul>
+            <p>Settings</p>
+            <ul class="g-settings">
+              <li><a href="#f-settings">Settings</a></li>
+            </ul>
+          </nav>
 
-        <div class="group tools">
-          <h3 class="group-name">Tools</h3>
-          <dl>
-            <div><dt>Generator</dt><dd>Create sample JSON from an example document or a JSON Schema.</dd></div>
-            <div><dt>Converter</dt><dd>Turn JSON into YAML, CSV, XML, or Swift and Kotlin model code.</dd></div>
-            <div><dt>API Client</dt><dd>Send HTTP requests with custom headers and a body, then inspect the response.</dd></div>
-            <div><dt>Mock Generator</dt><dd>Build fake records with names, emails, dates and more from a list of fields.</dd></div>
-            <div><dt>JWT</dt><dd>Decode tokens, verify HS256, HS384 and HS512 signatures, and create signed tokens.</dd></div>
-          </dl>
-        </div>
+          <div>
+            <div class="dir-group g-workspace">
+              <h3>Workspace <span>5 screens</span></h3>
+              <div class="feature" id="f-formatter">
+                <h4>Formatter</h4>
+                <div>
+                  <p>Pretty-print, minify or escape JSON, with indent, sort-keys and Unicode-escape options.</p>
+                  <p>A language menu on the input also formats XML, YAML, CSV, Plist, TOML, Properties and .env files, and encodes or decodes Base64, URL and Unicode text.</p>
+                </div>
+              </div>
+              <div class="feature" id="f-validator">
+                <h4>Validator</h4>
+                <p>Checks your JSON and points to the exact line and column of each error.</p>
+              </div>
+              <div class="feature" id="f-explorer">
+                <h4>Explorer</h4>
+                <p>Browse a document as a collapsible tree, a table, or raw text.</p>
+              </div>
+              <div class="feature" id="f-compare">
+                <h4>Compare</h4>
+                <p>Diff two documents and jump from one change to the next.</p>
+              </div>
+              <div class="feature" id="f-jsonpath">
+                <h4>JSONPath</h4>
+                <p>Query a document with JSONPath expressions, with autocomplete and a cheat sheet next to the editor.</p>
+              </div>
+            </div>
 
-        <div class="group settings">
-          <h3 class="group-name">Settings</h3>
-          <dl>
-            <div><dt>Look and feel</dt><dd>Theme, accent color, code font size and line wrapping.</dd></div>
-            <div><dt>Your defaults</dt><dd>Formatter options, request timeout, the screen to open on launch, and how long deleted items are kept.</dd></div>
-            <div><dt>Backups</dt><dd>Export the whole library to a single JSON file, and import it on any Mac.</dd></div>
-          </dl>
-        </div>
+            <div class="dir-group g-library">
+              <h3>Library <span>4 screens</span></h3>
+              <div class="feature" id="f-store">
+                <h4>JSON Store</h4>
+                <p>Keep documents organized as project, folder and document, with tags, favorites, locking, search, and drag and drop.</p>
+              </div>
+              <div class="feature" id="f-schema">
+                <h4>Schema</h4>
+                <p>Generate a JSON Schema from sample JSON, or validate a document against one. Generation options sit in the right-hand panel.</p>
+              </div>
+              <div class="feature" id="f-projects">
+                <h4>Projects</h4>
+                <p>One dashboard per project for its documents, requests, schemas and queries. Pin the projects you open most.</p>
+              </div>
+              <div class="feature" id="f-deleted">
+                <h4>Recently Deleted</h4>
+                <p>Deleted documents, projects with their saved items, requests, schemas, queries and saved APIs are kept for the period you choose. Restore them, or remove them for good.</p>
+              </div>
+            </div>
 
-        <div class="shortcuts">
-          <span><kbd>⌘</kbd> <kbd>K</kbd> opens the command palette</span>
-          <span><kbd>⌘</kbd> <kbd>F</kbd> searches the current editor</span>
-          <span>Save results from most screens straight into a project</span>
+            <div class="dir-group g-tools">
+              <h3>Tools <span>5 screens</span></h3>
+              <div class="feature" id="f-generator">
+                <h4>Generator</h4>
+                <p>Create sample JSON from an example document or from a JSON Schema.</p>
+              </div>
+              <div class="feature" id="f-converter">
+                <h4>Converter</h4>
+                <div>
+                  <p>Convert between JSON and YAML, CSV, TSV, XML, TOML, Properties, plist and query strings. Choose input and output formats separately, and swap them with one click.</p>
+                  <p>Generate model code in Swift, Kotlin, TypeScript, Java, Dart, Go, C# and Python.</p>
+                </div>
+              </div>
+              <div class="feature" id="f-api">
+                <h4>API Client</h4>
+                <p>Send HTTP requests with custom headers and a body, and read the response. Saved APIs, environments with <code>{{variables}}</code>, cURL, Postman and OpenAPI support. <a href="#api-client">See the API Client</a></p>
+              </div>
+              <div class="feature" id="f-mock">
+                <h4>Mock Generator</h4>
+                <p>Build fake records such as names, emails and dates from a list of fields, as one object or a list. Object and List fields can hold nested fields.</p>
+              </div>
+              <div class="feature" id="f-jwt">
+                <h4>JWT</h4>
+                <p>Decode tokens, verify HS256, HS384 and HS512 signatures, and create signed tokens. The secret is never saved to disk.</p>
+              </div>
+            </div>
+
+            <div class="dir-group g-settings">
+              <h3>Settings</h3>
+              <div class="feature" id="f-settings">
+                <h4>Make it yours</h4>
+                <div>
+                  <p>Theme, accent color, code font size and line wrapping. Default formatter options, request timeout, the screen to open on launch, and the splash screen.</p>
+                  <p>Choose which item types show on the Projects screen and whether the API Client shows its cURL menu. Set how long deleted items are kept, export or import a backup, or clear all data.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- API Client -->
+    <section class="section" id="api-client">
+      <div class="wrap spot">
+        <div class="spot-copy">
+          <h2>An API client that knows your JSON</h2>
+          <p>Send a request, read the response with the same editors you use everywhere else, and save it straight into a project.</p>
+          <ul class="ticks">
+            <li><div><strong>Environments and variables</strong><span>Keep values like <code>{{baseUrl}}</code> and <code>{{token}}</code> per environment. A path such as <code>/posts</code> picks up the active environment's base URL.</span></div></li>
+            <li><div><strong>Saved APIs</strong><span>Organize requests as project, folder and API in the saved-APIs panel.</span></div></li>
+            <li><div><strong>Bring your collections</strong><span>Import and copy cURL. Import Postman collections and OpenAPI or Swagger files, and export a project as a Postman collection.</span></div></li>
+          </ul>
+        </div>
+
+        <div class="window" role="img" aria-label="Example of the API Client sending a GET request to {{baseUrl}}/posts in the Staging environment and receiving a 200 OK response">
+          <div class="titlebar">
+            <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span class="titlebar-title">API Client</span>
+            <div class="titlebar-tools"><span class="chip">Environment: Staging</span></div>
+          </div>
+          <div class="req">
+            <span class="method">GET</span>
+            <span class="url"><span class="var">{{baseUrl}}</span>/posts?userId=7</span>
+            <span class="send">Send</span>
+          </div>
+          <div class="kv">
+            <div>Accept</div><div>application/json</div>
+            <div>Authorization</div><div>Bearer <span class="var">{{token}}</span></div>
+          </div>
+          <div class="resp-head"><span class="badge-ok">200 OK</span><span>184 ms</span><span>1.2 KB</span><span class="env">Save to project</span></div>
+<pre class="code" data-json>
+[
+  {
+    "id": 31,
+    "userId": 7,
+    "title": "Ship the release notes",
+    "done": false
+  },
+  {
+    "id": 32,
+    "userId": 7,
+    "title": "Review the payment flow",
+    "done": true
+  }
+]
+</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outside the app -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Works without opening the app</h2>
+          <p>Some JSON jobs take two seconds. JSON Desk handles those from the menu bar and from Shortcuts.</p>
+        </div>
+        <div class="outside">
+          <div class="panel">
+            <h3>Fix the clipboard from the menu bar</h3>
+            <p>Format, minify or validate the JSON on your clipboard from the menu bar icon. The icon briefly shows a check or a warning, so you know it worked.</p>
+            <div class="menubar-stage" aria-hidden="true">
+              <div class="menubar"><span class="mb-icon">{ }</span><span>Thu 1:05 PM</span></div>
+              <div class="menu">
+                <div class="hl">Format clipboard</div>
+                <div>Minify clipboard</div>
+                <div>Validate clipboard</div>
+                <hr>
+                <div>Open JSON Desk</div>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Build it into Shortcuts and Spotlight</h3>
+            <p>JSON Desk adds actions to format, validate and convert JSON, so you can run them from Spotlight or chain them with other apps in Shortcuts.</p>
+            <div class="shortcut-flow" aria-hidden="true">
+              <div class="action"><span class="action-icon ai-clip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9z"/></svg></span><b>Get clipboard</b></div>
+              <div class="flow-arrow"></div>
+              <div class="action"><span class="action-icon ai-desk">{}</span><b>Convert JSON</b> to <span class="pill">YAML</span></div>
+              <div class="flow-arrow"></div>
+              <div class="action"><span class="action-icon ai-copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span><b>Copy to clipboard</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Everywhere -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>On every screen</h2>
+        </div>
+        <div class="everywhere">
+          <div><h3>Save to a project</h3><p>Save results from most screens straight into a project.</p></div>
+          <div><h3>Drag files in</h3><p>Drop a text or JSON file onto any input editor to load it.</p></div>
+          <div><h3>Export and share</h3><p>Save any output as a file, PDF or image, or share it with AirDrop.</p></div>
+          <div><h3>Command palette</h3><p><kbd>⌘K</kbd> jumps to any screen or action. <kbd>⌘F</kbd> searches the current editor or output.</p></div>
+          <div><h3>Fits any window</h3><p>Toolbars adapt to a narrow window, and long outputs get a scroll-to-top button.</p></div>
+          <div><h3>Keeps your place</h3><p>Switching screens keeps your work, and the Tools screens remember what you last entered.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy -->
     <section class="section" id="privacy">
       <div class="wrap">
-        <div class="local">
+        <div class="privacy-band">
           <div>
             <h2>Your JSON stays on your Mac</h2>
-            <p class="intro" style="margin-bottom:20px">JSON often holds customer records, API keys and tokens. JSON Desk is built so that none of it goes anywhere you didn't send it.</p>
+            <p>JSON often holds customer records, API keys and tokens. JSON Desk is built so none of it goes anywhere you didn't send it.</p>
             <a href="privacy-policy">Read the privacy policy</a>
           </div>
           <ul>
-            <li><strong>No account, no analytics</strong><span>There's nothing to sign up for, and the app has no tracking or third-party code.</span></li>
-            <li><strong>One local library file</strong><span>Projects and documents live in a single file inside the app's sandbox. Export a backup whenever you like.</span></li>
-            <li><strong>Network only when you ask</strong><span>The only outgoing connections are the requests you send from the API Client, to the URLs you enter.</span></li>
-            <li><strong>Secrets aren't saved</strong><span>JWT signing secrets are kept in memory only and never written to disk.</span></li>
+            <li><strong>No account, no analytics</strong><span>There's nothing to sign up for, and no tracking or third-party code in the app.</span></li>
+            <li><strong>Stored on your Mac</strong><span>Your library lives in one file inside the app's sandbox, and you can export a backup at any time.</span></li>
+            <li><strong>Network only when you send</strong><span>The app connects to the internet only for API Client requests, to the URLs you enter.</span></li>
+            <li><strong>JWT secrets aren't saved</strong><span>The secret you use to verify or sign a token is never written to disk.</span></li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="cta">
+      <div class="wrap">
+        <img src="icon.png" alt="" width="120" height="120">
+        <h2>Get JSON Desk for your Mac</h2>
+        <p>Free on the Mac App Store. Requires macOS 14 Sonoma or later.</p>
+        <a class="btn btn-primary" href="https://apps.apple.com/app/id6827042635">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+          Download free on the Mac App Store
+        </a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <span>© 2026 Ashok Arbad</span>
-      <nav aria-label="Footer">
+      <div>
+        <div class="footer-brand"><img src="icon.png" alt="" width="28" height="28">JSON Desk</div>
+        <small>© 2026 Ashok Arbad. All rights reserved.</small>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="./#features">Features</a>
         <a href="support">Support</a>
         <a href="privacy-policy">Privacy Policy</a>
         <a href="terms-of-service">Terms of Service</a>
+        <a href="https://apps.apple.com/app/id6827042635">Mac App Store</a>
       </nav>
     </div>
   </footer>
 
-  <script>
-    (function () {
-      var source = '{"invoice":"INV-2048","customer":{"name":"Meera Joshi","email":"meera@example.com"},"paid":true,"total":129.5,"items":[{"sku":"A-17","qty":2},{"sku":"B-03","qty":1}],"note":null}';
-      var data = JSON.parse(source);
-      var pre = document.getElementById('demo-code');
-      var buttons = document.querySelectorAll('.segmented button');
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      function esc(s) {
-        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      }
-
-      function highlight(text) {
-        var re = /("(?:\\.|[^"\\])*")(\s*:)?|\b(true|false|null)\b|(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)/g;
-        var out = '', last = 0, m;
-        while ((m = re.exec(text))) {
-          out += esc(text.slice(last, m.index));
-          if (m[1]) {
-            out += m[2]
-              ? '<span class="t-key">' + esc(m[1]) + '</span>' + esc(m[2])
-              : '<span class="t-str">' + esc(m[1]) + '</span>';
-          } else if (m[3]) {
-            out += '<span class="t-lit">' + m[3] + '</span>';
-          } else {
-            out += '<span class="t-num">' + m[4] + '</span>';
-          }
-          last = re.lastIndex;
-        }
-        return out + esc(text.slice(last));
-      }
-
-      function render(mode, animate) {
-        var text = mode === 'pretty' ? JSON.stringify(data, null, 2) : JSON.stringify(data);
-        var lines = text.split('\n');
-        pre.classList.toggle('is-animating', !!animate && !reduce);
-        pre.innerHTML = lines.map(function (line, i) {
-          var delay = animate ? ' style="animation-delay:' + (i * 35) + 'ms"' : '';
-          return '<span class="line"' + delay + '>' + highlight(line) + '</span>';
-        }).join('');
-        buttons.forEach(function (b) {
-          b.setAttribute('aria-pressed', String(b.dataset.mode === mode));
-        });
-      }
-
-      buttons.forEach(function (b) {
-        b.addEventListener('click', function () { render(b.dataset.mode, true); });
-      });
-
-      // Start minified, then format once, so the first thing you see is the app's core job.
-      if (reduce) {
-        render('pretty', false);
-      } else {
-        render('minify', false);
-        setTimeout(function () { render('pretty', true); }, 900);
-      }
-    })();
-  </script>
+  <script src="site.js"></script>
 </body>
 </html>
