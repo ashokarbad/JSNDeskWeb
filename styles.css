@@ -514,6 +514,16 @@ kbd { border-bottom-width: 2px; font-weight: 500; }
 @media (prefers-color-scheme: dark) { .ai-desk { background: #3A4762; } }
 .flow-arrow { width: 2px; height: 10px; background: var(--line-strong); margin-left: 30px; }
 
+.panel-wide { display: grid; gap: 20px 48px; align-items: center; }
+@media (min-width: 900px) { .panel-wide { grid-column: 1 / -1; grid-template-columns: 0.9fr 1.1fr; } }
+.panel-wide p { color: var(--muted); margin: 0; max-width: 48ch; }
+.filetypes { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.filetypes li {
+  font: 500 13px/1 var(--mono); color: var(--ink-2);
+  padding: 9px 11px; border-radius: 8px;
+  background: var(--surface-2); border: 1px solid var(--line);
+}
+
 /* everywhere list */
 .everywhere {
   display: grid; gap: 0 48px;

@@ -52,7 +52,7 @@
         <ol>
           <li><a href="#contact">Contact support</a></li>
           <li><a href="#getting-started">Getting started</a></li>
-          <li><a href="#your-data">Your data</a></li>
+          <li><a href="#your-data">Your library</a></li>
           <li><a href="#api-client">API Client</a></li>
           <li><a href="#outside">Menu bar and Shortcuts</a></li>
           <li><a href="#report">Reporting a bug</a></li>
@@ -69,8 +69,8 @@
 </div>
 
 <div class="topics">
-  <a class="g-workspace" href="#getting-started"><strong>Getting started</strong><span>Formats, shortcuts, loading and exporting files</span></a>
-  <a class="g-library" href="#your-data"><strong>Your data</strong><span>Where it lives, backups, recovery and deleting</span></a>
+  <a class="g-workspace" href="#getting-started"><strong>Getting started</strong><span>Formats, opening files, shortcuts and exporting</span></a>
+  <a class="g-library" href="#your-data"><strong>Your library</strong><span>Folders, notes, backups, recovery and deleting</span></a>
   <a class="g-tools" href="#api-client"><strong>API Client</strong><span>Environments, imports, tokens and timeouts</span></a>
   <a class="g-settings" href="#outside"><strong>Menu bar and Shortcuts</strong><span>Using JSON Desk without opening it</span></a>
 </div>
@@ -90,15 +90,32 @@
   </details>
   <details id="load-file">
     <summary>How do I open a file?</summary>
-    <div class="answer"><p>Drag a text or JSON file onto any input editor. The editor shows a hint while you drag, and loads the file when you drop it. You can also paste straight into any editor.</p></div>
+    <div class="answer">
+      <p>In Finder, Control-click a file and choose <strong>Open With › JSON Desk</strong>. It opens in the Formatter, or in the Converter for TSV files. JSON Desk opens <code>.json</code>, <code>.jsonc</code>, <code>.geojson</code>, <code>.xml</code>, <code>.yaml</code>, <code>.yml</code>, <code>.csv</code>, <code>.tsv</code>, <code>.toml</code>, <code>.properties</code>, <code>.env</code>, <code>.plist</code> and <code>.txt</code> files.</p>
+      <p>You can also drag a file onto any input editor, which shows a hint while you drag, or paste straight into any editor.</p>
+      <p>To open a file type with JSON Desk every time, select the file in Finder, choose <strong>File › Get Info</strong>, pick JSON Desk under <strong>Open with</strong>, and click <strong>Change All</strong>.</p>
+    </div>
   </details>
   <details id="export">
     <summary>How do I export or share a result?</summary>
     <div class="answer"><p>Use the Export menu on any output to save it as a file, PDF or image, or to share it through the macOS share menu, including AirDrop. Most screens can also save their result straight into a project.</p></div>
   </details>
   <details id="shortcuts-keys">
-    <summary>Are there keyboard shortcuts?</summary>
-    <div class="answer"><p><kbd>⌘K</kbd> opens the command palette, where you can jump to any screen or action. <kbd>⌘F</kbd> searches the current editor or output.</p></div>
+    <summary>What are the keyboard shortcuts, and can I change them?</summary>
+    <div class="answer">
+      <table class="table">
+        <thead><tr><th>Shortcut</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td><kbd>⌘1</kbd>–<kbd>⌘9</kbd>, <kbd>⌥⌘1</kbd>–<kbd>⌥⌘5</kbd></td><td>Jump to a screen</td></tr>
+          <tr><td><kbd>⌘K</kbd></td><td>Open the command palette to reach any screen or action</td></tr>
+          <tr><td><kbd>⌘N</kbd></td><td>Start a new item</td></tr>
+          <tr><td><kbd>⌘F</kbd></td><td>Search the current editor or output</td></tr>
+          <tr><td><kbd>⌘,</kbd></td><td>Open Settings</td></tr>
+          <tr><td><kbd>⌘/</kbd></td><td>List every shortcut</td></tr>
+        </tbody>
+      </table>
+      <p>You can change any of them in Settings.</p>
+    </div>
   </details>
   <details id="key-order">
     <summary>Will formatting change my keys or numbers?</summary>
@@ -106,12 +123,27 @@
   </details>
 </div>
 
-<h2 id="your-data">Your data</h2>
+<h2 id="your-data">Your library</h2>
 <div class="faq">
+  <details id="folders">
+    <summary>I moved a document. Why is its old folder still there?</summary>
+    <div class="answer"><p>Moving a document leaves its old folder in place, even when the folder is now empty, so your structure doesn't change unexpectedly. Rename or delete folders yourself from the JSON Store. You can also create empty folders ahead of time.</p></div>
+  </details>
+  <details id="unassigned">
+    <summary>What is the Unassigned group?</summary>
+    <div class="answer"><p>It holds documents that don't belong to a project yet. Give it a name to turn it into a project, or delete it.</p></div>
+  </details>
+  <details id="notes">
+    <summary>What's the difference between a general note and an API note?</summary>
+    <div class="answer">
+      <p>A general note is free text. An API note records a URL, the request, optional headers and the response, which is handy for keeping examples of how an API behaves.</p>
+      <p>Notes are shown as one list, newest change first. To group them by project and folder like the JSON Store, turn that on in <strong>Settings › Notes</strong>.</p>
+    </div>
+  </details>
   <details id="where-stored">
     <summary>Where is my data stored?</summary>
     <div class="answer">
-      <p>Your library (documents, projects, requests, schemas, queries and Recently Deleted) is a single file called <code>store.json</code> inside the app's sandbox. To find it, choose <strong>Go › Go to Folder</strong> in Finder, enter <code>~/Library/Containers</code>, open the JSON Desk folder, then go to <code>Data/Library/Application Support/JsonStudio</code>. The folder keeps its old name so libraries from earlier versions still load.</p>
+      <p>Your library (documents, projects, folders, notes, requests, schemas, queries and Recently Deleted) is a single file called <code>store.json</code> inside the app's sandbox. To find it, choose <strong>Go › Go to Folder</strong> in Finder, enter <code>~/Library/Containers</code>, open the JSON Desk folder, then go to <code>Data/Library/Application Support/JsonStudio</code>. The folder keeps its old name so libraries from earlier versions still load.</p>
       <p>Settings, recent tool inputs, and the API Client's saved APIs and environments are kept in the app's preferences in the same container.</p>
     </div>
   </details>
@@ -125,7 +157,7 @@
   </details>
   <details id="restore">
     <summary>I deleted something by mistake. Can I get it back?</summary>
-    <div class="answer"><p>Open <strong>Recently Deleted</strong> in the Library section of the sidebar and restore it. Documents, projects with their saved items, requests, schemas, queries and saved APIs are kept there for the period set in Settings. Once an item is removed from Recently Deleted, it can only come back from a backup.</p></div>
+    <div class="answer"><p>Open <strong>Recently Deleted</strong> in the Library section of the sidebar and restore it. Documents, projects with their saved items, notes, requests, schemas, queries and saved APIs are kept there for the period set in Settings. Once an item is removed from Recently Deleted, it can only come back from a backup.</p></div>
   </details>
   <details id="empty-library">
     <summary>The app opened with an empty library. Is my data gone?</summary>

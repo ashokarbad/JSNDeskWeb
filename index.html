@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>JSON Desk: format, convert and test JSON on your Mac</title>
-  <meta name="description" content="JSON Desk is a free, native macOS app with fourteen JSON tools: a multi-format formatter, validator, explorer, diff, JSONPath, converter with model code in eight languages, API client, JWT tools and a local library. No account, no analytics.">
+  <meta name="description" content="JSON Desk is a free, native macOS app with fifteen JSON tools: a multi-format formatter, validator, explorer, diff, JSONPath, converter with model code in eight languages, API client, JWT tools, notes and a local library. No account, no analytics.">
   <link rel="canonical" href="https://ashokarbad.github.io/JSNDeskWeb/">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#F5F6FB" media="(prefers-color-scheme: light)">
@@ -57,7 +57,7 @@
       <div class="wrap">
         <img class="hero-icon" src="icon.png" alt="JSON Desk app icon" width="96" height="96">
         <h1>Format, convert and test JSON on your Mac.</h1>
-        <p class="lede">Fourteen tools in one native window: a formatter that also reads XML, YAML and TOML, a converter that writes model code in eight languages, an API client, and a library that keeps it all organized. Nothing leaves your Mac unless you send it.</p>
+        <p class="lede">Fifteen tools in one native window: a formatter that also reads XML, YAML and TOML, a converter that writes model code in eight languages, an API client, and a library for your documents and notes. Nothing leaves your Mac unless you send it.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://apps.apple.com/app/id6827042635">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
@@ -79,7 +79,7 @@
                 <h4>Workspace</h4>
                 <ul class="g-work"><li>Formatter</li><li>Validator</li><li>Explorer</li><li>Compare</li><li>JSONPath</li></ul>
                 <h4>Library</h4>
-                <ul class="g-lib"><li>JSON Store</li><li>Schema</li><li>Projects</li><li>Recently Deleted</li></ul>
+                <ul class="g-lib"><li>JSON Store</li><li>Schema</li><li>Projects</li><li>Notes</li><li>Recently Deleted</li></ul>
                 <h4>Tools</h4>
                 <ul class="g-tools"><li>Generator</li><li class="on">Converter</li><li>API Client</li><li>Mock Generator</li><li>JWT</li></ul>
               </div>
@@ -167,7 +167,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Everything in the sidebar</h2>
-          <p>Fourteen screens, grouped the way you work: edit in the Workspace, keep things in the Library, and reach for Tools when you need them.</p>
+          <p>Fifteen screens, grouped the way you work: edit in the Workspace, keep things in the Library, and reach for Tools when you need them.</p>
         </div>
 
         <div class="directory">
@@ -185,6 +185,7 @@
               <li><a href="#f-store">JSON Store</a></li>
               <li><a href="#f-schema">Schema</a></li>
               <li><a href="#f-projects">Projects</a></li>
+              <li><a href="#f-notes">Notes</a></li>
               <li><a href="#f-deleted">Recently Deleted</a></li>
             </ul>
             <p>Tools</p>
@@ -230,10 +231,10 @@
             </div>
 
             <div class="dir-group g-library">
-              <h3>Library <span>4 screens</span></h3>
+              <h3>Library <span>5 screens</span></h3>
               <div class="feature" id="f-store">
                 <h4>JSON Store</h4>
-                <p>Keep documents organized as project, folder and document, with tags, favorites, locking, search, and drag and drop.</p>
+                <p>Keep documents organized as project, folder and document, with tags, favorites, locking, search, and drag and drop. Create, rename and delete folders, even empty ones, and turn the Unassigned group into a project by naming it.</p>
               </div>
               <div class="feature" id="f-schema">
                 <h4>Schema</h4>
@@ -243,9 +244,16 @@
                 <h4>Projects</h4>
                 <p>One dashboard per project for its documents, requests, schemas and queries. Pin the projects you open most.</p>
               </div>
+              <div class="feature" id="f-notes">
+                <h4>Notes</h4>
+                <div>
+                  <p>Write general notes in free text, or API notes that record a URL, request, optional headers and the response you got back.</p>
+                  <p>Show notes as one list sorted by when you last changed them, or group them by project and folder like the JSON Store.</p>
+                </div>
+              </div>
               <div class="feature" id="f-deleted">
                 <h4>Recently Deleted</h4>
-                <p>Deleted documents, projects with their saved items, requests, schemas, queries and saved APIs are kept for the period you choose. Restore them, or remove them for good.</p>
+                <p>Deleted documents, projects with their saved items, notes, requests, schemas, queries and saved APIs are kept for the period you choose. Restore them, or remove them for good.</p>
               </div>
             </div>
 
@@ -268,7 +276,7 @@
               </div>
               <div class="feature" id="f-mock">
                 <h4>Mock Generator</h4>
-                <p>Build fake records such as names, emails and dates from a list of fields, as one object or a list. Object and List fields can hold nested fields.</p>
+                <p>Build fake records such as names, emails and dates from a list of fields, as one object or a list. Object and List fields can hold nested fields, and <kbd>⌘Z</kbd> undoes adding or removing one.</p>
               </div>
               <div class="feature" id="f-jwt">
                 <h4>JWT</h4>
@@ -282,7 +290,7 @@
                 <h4>Make it yours</h4>
                 <div>
                   <p>Theme, accent color, code font size and line wrapping. Default formatter options, request timeout, the screen to open on launch, and the splash screen.</p>
-                  <p>Choose which item types show on the Projects screen and whether the API Client shows its cURL menu. Set how long deleted items are kept, export or import a backup, or clear all data.</p>
+                  <p>Change any keyboard shortcut. Choose which item types show on the Projects screen, whether notes are grouped by project and folder, and whether the API Client shows its cURL menu. Set how long deleted items are kept, export or import a backup, or clear all data.</p>
                 </div>
               </div>
             </div>
@@ -345,7 +353,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Works without opening the app</h2>
-          <p>Some JSON jobs take two seconds. JSON Desk handles those from the menu bar and from Shortcuts.</p>
+          <p>Some JSON jobs take two seconds. JSON Desk handles those from the menu bar, from Shortcuts, and straight from Finder.</p>
         </div>
         <div class="outside">
           <div class="panel">
@@ -373,6 +381,15 @@
               <div class="action"><span class="action-icon ai-copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></span><b>Copy to clipboard</b></div>
             </div>
           </div>
+          <div class="panel panel-wide">
+            <div>
+              <h3>Open files straight from Finder</h3>
+              <p>Choose <strong>Open With › JSON Desk</strong> on a data file and it opens ready to format. TSV files open in the Converter.</p>
+            </div>
+            <ul class="filetypes" aria-label="File types JSON Desk opens">
+              <li>.json</li><li>.jsonc</li><li>.geojson</li><li>.xml</li><li>.yaml</li><li>.yml</li><li>.csv</li><li>.tsv</li><li>.toml</li><li>.properties</li><li>.env</li><li>.plist</li><li>.txt</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -387,7 +404,7 @@
           <div><h3>Save to a project</h3><p>Save results from most screens straight into a project.</p></div>
           <div><h3>Drag files in</h3><p>Drop a text or JSON file onto any input editor to load it.</p></div>
           <div><h3>Export and share</h3><p>Save any output as a file, PDF or image, or share it with AirDrop.</p></div>
-          <div><h3>Command palette</h3><p><kbd>⌘K</kbd> jumps to any screen or action. <kbd>⌘F</kbd> searches the current editor or output.</p></div>
+          <div><h3>Keyboard first</h3><p><kbd>⌘1</kbd>–<kbd>⌘9</kbd> and <kbd>⌥⌘1</kbd>–<kbd>⌥⌘5</kbd> jump to screens, <kbd>⌘K</kbd> opens the command palette, and <kbd>⌘/</kbd> lists every shortcut. Change any of them in Settings.</p></div>
           <div><h3>Fits any window</h3><p>Toolbars adapt to a narrow window, and long outputs get a scroll-to-top button.</p></div>
           <div><h3>Keeps your place</h3><p>Switching screens keeps your work, and the Tools screens remember what you last entered.</p></div>
         </div>
