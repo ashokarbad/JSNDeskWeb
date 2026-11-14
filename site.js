@@ -49,6 +49,29 @@
   openFromHash();
   window.addEventListener('hashchange', openFromHash);
 
+  /* API Client request tabs on the home page. */
+  var apiTabs = Array.prototype.slice.call(document.querySelectorAll('[data-apitab]'));
+  function showApiTab(name) {
+    apiTabs.forEach(function (b) {
+      var on = b.getAttribute('data-apitab') === name;
+      b.setAttribute('aria-selected', String(on));
+      b.tabIndex = on ? 0 : -1;
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-panel]'), function (p) {
+      p.hidden = p.getAttribute('data-panel') !== name;
+    });
+  }
+  apiTabs.forEach(function (b, i) {
+    b.addEventListener('click', function () { showApiTab(b.getAttribute('data-apitab')); });
+    b.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var next = apiTabs[(i + d + apiTabs.length) % apiTabs.length];
+      next.focus(); next.click();
+    });
+  });
+
   /* ---------- Converter demo on the home page ---------- */
 
   var out = document.getElementById('demo-output');

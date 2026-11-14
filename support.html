@@ -110,11 +110,27 @@
           <tr><td><kbd>⌘K</kbd></td><td>Open the command palette to reach any screen or action</td></tr>
           <tr><td><kbd>⌘N</kbd></td><td>Start a new item</td></tr>
           <tr><td><kbd>⌘F</kbd></td><td>Search the current editor or output</td></tr>
+          <tr><td><kbd>⌘Z</kbd> / <kbd>⇧⌘Z</kbd></td><td>Undo or redo adding or deleting a Mock Generator field</td></tr>
           <tr><td><kbd>⌘,</kbd></td><td>Open Settings</td></tr>
           <tr><td><kbd>⌘/</kbd></td><td>List every shortcut</td></tr>
         </tbody>
       </table>
       <p>You can change any of them in Settings.</p>
+    </div>
+  </details>
+  <details id="windows">
+    <summary>Can I open more than one window?</summary>
+    <div class="answer"><p>Yes. Choose <strong>File › New Window</strong> or <strong>New Tab</strong>. All windows share your library, so a change in one shows in the others. JSON Desk remembers window position and pane sizes.</p></div>
+  </details>
+  <details id="multi-select">
+    <summary>How do I act on several items at once?</summary>
+    <div class="answer"><p>In the JSON Store, Notes and the API Client's saved list, <kbd>⌘</kbd>-click or <kbd>⇧</kbd>-click to select several items, then right-click. Depending on the list, you can lock, move, favourite, export, delete or save them as notes.</p></div>
+  </details>
+  <details id="search">
+    <summary>How do I find something quickly?</summary>
+    <div class="answer">
+      <p>Press <kbd>⌘K</kbd>. Besides screens and actions, it searches your documents, notes, saved requests and API Client requests. <kbd>⌘F</kbd> searches the current editor or output, and Explorer can search keys and values.</p>
+      <p>To find documents and notes from Spotlight, turn that on in Settings. Locked documents and notes are never included.</p>
     </div>
   </details>
   <details id="key-order">
@@ -139,6 +155,21 @@
       <p>A general note is free text. An API note records a URL, the request, optional headers and the response, which is handy for keeping examples of how an API behaves.</p>
       <p>Notes are shown as one list, newest change first. To group them by project and folder like the JSON Store, turn that on in <strong>Settings › Notes</strong>.</p>
     </div>
+  </details>
+  <details id="note-export">
+    <summary>How do I export or share a note?</summary>
+    <div class="answer">
+      <p>Right-click a note and choose Export to save it as Markdown or text. Select several notes, or use a project's menu, to export many as Markdown.</p>
+      <p>You can also drag a note to Finder. A general note becomes a <code>.txt</code> file, and an API note becomes a Postman collection that the API Client can import. Drag a document out of the JSON Store to get a <code>.json</code> file.</p>
+    </div>
+  </details>
+  <details id="note-lock">
+    <summary>What does locking a note or document do?</summary>
+    <div class="answer"><p>A locked note can be read and copied but not edited, moved or deleted. Lock it from the lock icon in the list, or by right-clicking. Locked documents and notes are also left out of Spotlight. Locking is not encryption.</p></div>
+  </details>
+  <details id="undo-delete">
+    <summary>I deleted a document, note or project. Can I undo it?</summary>
+    <div class="answer"><p>Click <strong>Undo</strong> in the message that appears right after you delete. If you miss it, the item still waits in Recently Deleted.</p></div>
   </details>
   <details id="where-stored">
     <summary>Where is my data stored?</summary>
@@ -189,16 +220,52 @@
       <p>If you enter just a path, such as <code>/posts</code>, the active environment's base URL is added in front of it.</p>
     </div>
   </details>
+  <details id="auth">
+    <summary>How do I add authentication to a request?</summary>
+    <div class="answer"><p>Open the <strong>Auth</strong> tab and choose Bearer, Basic or API key. JSON Desk adds the matching header for you. You can put a variable such as <code>{{token}}</code> in the value, so each environment can use its own.</p></div>
+  </details>
+  <details id="capture">
+    <summary>How do I reuse a login token or a value from a response?</summary>
+    <div class="answer">
+      <p>The easiest way is the login-token bar. When a response contains a login token, a bar offers to use it. Choose the field from the dropdown, such as <code>accessToken</code> or <code>refreshToken</code>, and every later request is sent with <code>Authorization: Bearer &lt;token&gt;</code> automatically. The header shows as a row in the Headers tab. Click the <strong>?</strong> button for the steps.</p>
+      <p>JSON Desk skips requests that have their own Authorization header, and login-style URLs. The token is kept in memory only and is forgotten when you quit the app.</p>
+      <p>To store other values from a response, use the <strong>Capture</strong> tab. It saves them into the active environment, so any request that uses that variable picks them up.</p>
+    </div>
+  </details>
+  <details id="response">
+    <summary>What can I do with a response?</summary>
+    <div class="answer">
+      <p>You see the response, its headers, the time and the size. Search it, and click a line to copy its value. Use Copy and Export, or the tray button to save a JSON response to the JSON Store. You choose the project and folder, and can type a new folder.</p>
+      <p>Responses up to about a million characters are shown in full.</p>
+    </div>
+  </details>
+  <details id="save-as-note">
+    <summary>How do I keep a request and its response together?</summary>
+    <div class="answer"><p>Right-click a saved API and choose <strong>Save as Note</strong>. The note holds the full URL, the headers and the response. If the request is already saved as a note, JSON Desk tells you. You can open an API note back in the API Client.</p></div>
+  </details>
+  <details id="saved-response">
+    <summary>Why did a saved request lose its last response after I restarted?</summary>
+    <div class="answer"><p>A saved API keeps its last response across restarts only when the response is under 200,000 characters. A larger one is kept until you quit, so switching between APIs doesn't clear it. To keep a large response, save it to the JSON Store or as a note.</p></div>
+  </details>
+  <details id="cookies">
+    <summary>Does the API Client keep cookies?</summary>
+    <div class="answer"><p>Yes, cookies are kept between requests so sessions work. You can turn this off, and clear the cookies it holds, in Settings.</p></div>
+  </details>
+  <details id="duplicate-lock">
+    <summary>Can I copy or protect a saved request?</summary>
+    <div class="answer"><p>Duplicate a request to try it against another environment. Lock a saved request so it can still be sent but not edited, renamed, moved or deleted.</p></div>
+  </details>
   <details id="import">
     <summary>Can I bring in requests from cURL, Postman or Swagger?</summary>
     <div class="answer">
-      <p>Yes. Import a cURL command, a Postman collection, or an OpenAPI or Swagger file, and copy any request as cURL. You can also export a project as a Postman collection.</p>
+      <p>Yes. Import a cURL command, a Postman collection, or an OpenAPI or Swagger file in JSON or YAML, and copy any request as cURL. You can also export a project as a Postman collection.</p>
+      <p>Importing the same file again adds only what is new, so it is safe to re-import after the file changes.</p>
       <p>If you don't use cURL, you can hide the cURL menu in Settings.</p>
     </div>
   </details>
   <details id="tokens">
     <summary>Are my tokens and API keys stored?</summary>
-    <div class="answer"><p>Header values and environment variables you save are stored in the app's preferences as plain text, and are included in Postman collections you export. They never leave your Mac unless you send a request or share an export. Avoid saving live production secrets. The JWT screen's secret is the exception: it is never saved.</p></div>
+    <div class="answer"><p>Header values, auth values and environment variables you save are stored in the app's preferences as plain text, and are included in Postman collections you export. They never leave your Mac unless you send a request or share an export. Avoid saving live production secrets. Two things are never saved: the JWT screen's secret, and a login token the API Client uses automatically. Both stay in memory until you quit.</p></div>
   </details>
   <details id="timeout">
     <summary>A request fails or times out. What should I check?</summary>
@@ -207,6 +274,7 @@
         <li>Make sure the right environment is active, so variables like <code>{{baseUrl}}</code> resolve to the server you expect.</li>
         <li>Try the same address in a browser or with cURL to rule out the server or your network.</li>
         <li>Raise the request timeout in Settings if the server is slow to respond.</li>
+        <li>Check whether the response says it was redirected, and whether cookies from an earlier request are changing the result.</li>
       </ul>
     </div>
   </details>
