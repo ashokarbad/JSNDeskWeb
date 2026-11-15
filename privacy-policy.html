@@ -42,7 +42,7 @@
         <p class="crumb"><a href="./">JSON Desk</a> / Privacy Policy</p>
         <h1>Privacy Policy</h1>
         <p class="lede">JSON Desk is built to keep your data on your Mac. This page explains exactly what the app stores, where, and the few times anything leaves your computer.</p>
-        <p class="meta">Last updated November 14, 2026</p>
+        <p class="meta">Last updated November 16, 2026</p>
       </div>
     </div>
 
@@ -92,6 +92,8 @@
     <tr><td>Your library</td><td>Documents, projects, folders, tags, notes, requests, schemas, JSONPath queries and Recently Deleted items, in a single file named <code>store.json</code>.</td></tr>
     <tr><td>API Client saved APIs and environments</td><td>Saved APIs, their folders, and environments with their variable values, in the app's preferences (macOS user defaults).</td></tr>
     <tr><td>Settings and recent tool inputs</td><td>Your settings, and the last values you entered on the Tools screens, in the app's preferences.</td></tr>
+    <tr><td>Input history</td><td>The last 50 inputs of the Formatter, Validator, Explorer, Compare, JSONPath, Converter and Generator, saved in a file on your Mac a moment after you stop typing. Turn it off or clear it in Settings › Data.</td></tr>
+    <tr><td>API Client request history</td><td>The last 50 requests you sent, with their responses, kept across restarts. Secrets in headers and the Auth tab are not kept. Turn it off or clear it in Settings › Network.</td></tr>
     <tr><td>A recovery copy, only if needed</td><td>If the library file can't be read, the app saves a copy named <code>store.unreadable-&lt;timestamp&gt;.json</code> before starting a fresh library, so nothing is silently overwritten.</td></tr>
     <tr><td>JWT secrets</td><td>Not stored. The secret you type to verify or sign a token is kept in memory and never written to disk.</td></tr>
     <tr><td>API Client login token</td><td>Not stored. A login token you choose to use automatically is kept in memory only and is forgotten when you quit the app.</td></tr>
@@ -100,6 +102,10 @@
 <p>This data is stored as plain, unencrypted text. It is protected by your macOS user account, by FileVault if you have it turned on, and by the app sandbox. Locking a document in JSON Desk makes it read-only; it does not encrypt it.</p>
 <div class="note">
   <p><strong>About tokens and keys.</strong> If you put an API key or token in a request header, an environment variable or an API note, it is saved as plain text, either in the app's preferences or in your library, and in any backup or Postman collection you export. Avoid saving live production secrets in JSON Desk.</p>
+</div>
+
+<div class="note">
+  <p><strong>About history.</strong> Input history and request history can contain whatever you pasted or received, including personal data in a request body or response. They stay on your Mac, but clear them or turn them off if you work with sensitive data.</p>
 </div>
 
 <h2 id="network">Network connections</h2>
@@ -123,6 +129,7 @@
 <h2 id="deleting">Deleting your data</h2>
 <ul>
   <li>Delete individual items in the app. They move to Recently Deleted for the period you set, then are removed for good.</li>
+  <li>Turn off input history and request history, or clear them, in <strong>Settings › Data</strong> and <strong>Settings › Network</strong>.</li>
   <li>Use <strong>Settings › Clear all data</strong> to erase everything the app has saved.</li>
   <li>Delete the app and its folder in <code>~/Library/Containers</code> to remove every trace of it from your Mac.</li>
 </ul>

@@ -109,7 +109,7 @@
           <tr><td><kbd>⌘1</kbd>–<kbd>⌘9</kbd>, <kbd>⌥⌘1</kbd>–<kbd>⌥⌘5</kbd></td><td>Jump to a screen</td></tr>
           <tr><td><kbd>⌘K</kbd></td><td>Open the command palette to reach any screen or action</td></tr>
           <tr><td><kbd>⌘N</kbd></td><td>Start a new item</td></tr>
-          <tr><td><kbd>⌘F</kbd></td><td>Search the current editor or output</td></tr>
+          <tr><td><kbd>⌘F</kbd></td><td>Search the current editor or output, or inside the open note in Notes</td></tr>
           <tr><td><kbd>⌘Z</kbd> / <kbd>⇧⌘Z</kbd></td><td>Undo or redo adding or deleting a Mock Generator field</td></tr>
           <tr><td><kbd>⌘,</kbd></td><td>Open Settings</td></tr>
           <tr><td><kbd>⌘/</kbd></td><td>List every shortcut</td></tr>
@@ -117,6 +117,17 @@
       </table>
       <p>You can change any of them in Settings.</p>
     </div>
+  </details>
+  <details id="history">
+    <summary>Can I bring back something I entered earlier?</summary>
+    <div class="answer">
+      <p>Yes. The Formatter, Validator, Explorer, Compare, JSONPath, Converter and Generator each have a <strong>History</strong> button. It lists the last 50 inputs of that screen. Click one to bring it back.</p>
+      <p>History is saved a moment after you stop typing, in a file on your Mac. Turn it off, or clear it, in <strong>Settings › Data</strong>.</p>
+    </div>
+  </details>
+  <details id="walkthrough">
+    <summary>Where is the welcome walkthrough?</summary>
+    <div class="answer"><p>A nine-slide walkthrough appears the first time you open the app, with Back, Next and Skip. To see it again, choose <strong>Help › App Walkthrough…</strong> or open it from <strong>Settings › General</strong>.</p></div>
   </details>
   <details id="windows">
     <summary>Can I open more than one window?</summary>
@@ -141,6 +152,13 @@
 
 <h2 id="your-data">Your library</h2>
 <div class="faq">
+  <details id="project-dashboard">
+    <summary>What is on a project's dashboard?</summary>
+    <div class="answer">
+      <p>Each project has cards for its documents, saved APIs, notes, schemas and queries. Click a saved API to open a popup with all its details, and open it in the API Client from there. Choose which cards to show in Settings.</p>
+      <p>The notes card shows the project's three newest notes, and only when <strong>Settings › Notes</strong> groups notes by project. <strong>Show all</strong> opens them in Notes.</p>
+    </div>
+  </details>
   <details id="folders">
     <summary>I moved a document. Why is its old folder still there?</summary>
     <div class="answer"><p>Moving a document leaves its old folder in place, even when the folder is now empty, so your structure doesn't change unexpectedly. Rename or delete folders yourself from the JSON Store. You can also create empty folders ahead of time.</p></div>
@@ -154,6 +172,7 @@
     <div class="answer">
       <p>A general note is free text. An API note records a URL, the request, optional headers and the response, which is handy for keeping examples of how an API behaves.</p>
       <p>Notes are shown as one list, newest change first. To group them by project and folder like the JSON Store, turn that on in <strong>Settings › Notes</strong>.</p>
+      <p>In an API note, a request or response that is valid JSON appears with syntax colors. Choose <strong>Edit</strong> for the plain editor and <strong>Done</strong> to go back. An empty request is hidden, and <strong>Add Request</strong> brings it back. Press <kbd>⌘F</kbd> or click the magnifier to find text inside the note.</p>
     </div>
   </details>
   <details id="note-export">
@@ -228,8 +247,10 @@
     <summary>How do I reuse a login token or a value from a response?</summary>
     <div class="answer">
       <p>The easiest way is the login-token bar. When a response contains a login token, a bar offers to use it. Choose the field from the dropdown, such as <code>accessToken</code> or <code>refreshToken</code>, and every later request is sent with <code>Authorization: Bearer &lt;token&gt;</code> automatically. The header shows as a row in the Headers tab. Click the <strong>?</strong> button for the steps.</p>
-      <p>JSON Desk skips requests that have their own Authorization header, and login-style URLs. The token is kept in memory only and is forgotten when you quit the app.</p>
-      <p>To store other values from a response, use the <strong>Capture</strong> tab. It saves them into the active environment, so any request that uses that variable picks them up.</p>
+      <p>The token is kept in memory only and is forgotten when you quit the app.</p>
+      <p>JSON Desk skips requests that have their own Authorization header, and login-style URLs. To turn the token off for one API, choose <strong>Not for this API</strong>. That API is then also sent without stored cookies.</p>
+      <p>To store other values from a response, use the <strong>Capture</strong> tab. It saves a value from the response body, using a JSONPath, or from a response header into the active environment. The response's Headers tab also has a Capture button on each header.</p>
+      <p>To use a saved value in a header, choose <strong>Add Header › From Variable</strong>. It inserts the value as <code>{{name}}</code>.</p>
     </div>
   </details>
   <details id="response">
@@ -245,11 +266,26 @@
   </details>
   <details id="saved-response">
     <summary>Why did a saved request lose its last response after I restarted?</summary>
-    <div class="answer"><p>A saved API keeps its last response across restarts only when the response is under 200,000 characters. A larger one is kept until you quit, so switching between APIs doesn't clear it. To keep a large response, save it to the JSON Store or as a note.</p></div>
+    <div class="answer"><p>A saved API's last response is kept until you quit the app, so switching between APIs doesn't clear it. To get an earlier response back after a restart, open the request <strong>History</strong>, which keeps responses across restarts. To keep one for good, save it to the JSON Store or as a note.</p></div>
+  </details>
+  <details id="request-history">
+    <summary>What is the request history?</summary>
+    <div class="answer">
+      <p>The clock button in the API Client lists the last 50 requests you sent, with their responses. Click one to load it, or save it to Saved APIs. Request history keeps responses across restarts.</p>
+      <p>Secrets in headers and in the Auth tab are not kept in history. You can turn history off, or clear it, in <strong>Settings › Network</strong>.</p>
+    </div>
+  </details>
+  <details id="move-all">
+    <summary>How do I move many saved APIs at once?</summary>
+    <div class="answer"><p>Right-click a project, or Unassigned, and choose <strong>Move All to Project</strong>. Everything in it moves, locked APIs included.</p></div>
+  </details>
+  <details id="changed-api">
+    <summary>I changed a saved request's address and pressed Send. What happens?</summary>
+    <div class="answer"><p>If you change a saved API's address or method and press Send, JSON Desk asks whether to save it as a new API or replace the saved one, so you don't overwrite a request by accident.</p></div>
   </details>
   <details id="cookies">
     <summary>Does the API Client keep cookies?</summary>
-    <div class="answer"><p>Yes, cookies are kept between requests so sessions work. You can turn this off, and clear the cookies it holds, in Settings.</p></div>
+    <div class="answer"><p>Yes, cookies are kept between requests so sessions work. You can turn this off, and clear the cookies it holds, in Settings. An API with "Not for this API" turned on is sent without stored cookies.</p></div>
   </details>
   <details id="duplicate-lock">
     <summary>Can I copy or protect a saved request?</summary>
@@ -265,7 +301,7 @@
   </details>
   <details id="tokens">
     <summary>Are my tokens and API keys stored?</summary>
-    <div class="answer"><p>Header values, auth values and environment variables you save are stored in the app's preferences as plain text, and are included in Postman collections you export. They never leave your Mac unless you send a request or share an export. Avoid saving live production secrets. Two things are never saved: the JWT screen's secret, and a login token the API Client uses automatically. Both stay in memory until you quit.</p></div>
+    <div class="answer"><p>Header values, auth values and environment variables you save are stored in the app's preferences as plain text, and are included in Postman collections you export. They never leave your Mac unless you send a request or share an export. Avoid saving live production secrets. Two things are never saved: the JWT screen's secret, and a login token the API Client uses automatically. Both stay in memory until you quit. Request history leaves out secrets in headers and the Auth tab, but it does keep request bodies and responses, so clear it if they contain sensitive data.</p></div>
   </details>
   <details id="timeout">
     <summary>A request fails or times out. What should I check?</summary>
