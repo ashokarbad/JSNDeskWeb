@@ -98,7 +98,7 @@
   </details>
   <details id="export">
     <summary>How do I export or share a result?</summary>
-    <div class="answer"><p>Use the Export menu on any output to save it as a file, PDF or image, or to share it through the macOS share menu, including AirDrop. Most screens can also save their result straight into a project.</p></div>
+    <div class="answer"><p>Use the Export menu on any output to save it as a file, PDF or image, or to share it through the macOS share menu, including AirDrop. Most screens can also save their result straight into a project.</p><p>Every export asks which folder to save in, starting in the last one you used. Afterwards, the message shows the full path with a <strong>Show in Finder</strong> button.</p><p>Notes and JSON Store documents can be saved as PDF too: right-click and choose Export. Each note starts on a new page, with its title, method and URL, then the request, headers and response in colored, indented blocks on a clean white page. If you export several notes, JSON Desk asks whether to save one file or one file per note.</p></div>
   </details>
   <details id="shortcuts-keys">
     <summary>What are the keyboard shortcuts, and can I change them?</summary>
@@ -122,7 +122,7 @@
     <summary>Can I bring back something I entered earlier?</summary>
     <div class="answer">
       <p>Yes. The Formatter, Validator, Explorer, Compare, JSONPath, Converter and Generator each have a <strong>History</strong> button. It lists the last 50 inputs of that screen. Click one to bring it back.</p>
-      <p>History is saved a moment after you stop typing, in a file on your Mac. Turn it off, or clear it, in <strong>Settings › Data</strong>.</p>
+      <p>History is saved a moment after you stop typing, in a file on your Mac. Text that isn't JSON, such as a copied note, is not recorded on the JSON screens. Turn history off, or clear it, in <strong>Settings › Data</strong>.</p>
     </div>
   </details>
   <details id="walkthrough">
@@ -141,8 +141,29 @@
     <summary>How do I find something quickly?</summary>
     <div class="answer">
       <p>Press <kbd>⌘K</kbd>. Besides screens and actions, it searches your documents, notes, saved requests and API Client requests. <kbd>⌘F</kbd> searches the current editor or output, and Explorer can search keys and values.</p>
-      <p>To find documents and notes from Spotlight, turn that on in Settings. Locked documents and notes are never included.</p>
+      <p>Every search box has a small cross that clears it. To find documents and notes from Spotlight, turn that on in Settings. Locked documents and notes are never included.</p>
     </div>
+  </details>
+  <details id="sidebar">
+    <summary>How do I hide the sidebar?</summary>
+    <div class="answer"><p>Click the sidebar button at the top left of the window, choose <strong>View › Hide Sidebar</strong>, or press <kbd>⌃⌘S</kbd>. Do the same to show it again.</p></div>
+  </details>
+  <details id="app-menus">
+    <summary>What is in the app's menus?</summary>
+    <div class="answer">
+      <ul>
+        <li><strong>File:</strong> New Window, New Tab, Open, Import backup, Postman, OpenAPI or cURL import, and Export Backup.</li>
+        <li><strong>Edit:</strong> Find in Editor.</li>
+        <li><strong>View:</strong> sidebar, inspector, code text size, wrap lines and theme.</li>
+        <li><strong>Go:</strong> every screen.</li>
+        <li><strong>Help:</strong> the app walkthrough, in-app help and keyboard shortcuts.</li>
+      </ul>
+      <p><strong>JSON Desk › About JSON Desk</strong> shows the version.</p>
+    </div>
+  </details>
+  <details id="large-files">
+    <summary>Can it open large files?</summary>
+    <div class="answer"><p>Yes. Editors and read-only panes use native text views with a line-number index that is built as you scroll, so long files stay smooth. Long outputs have a scroll-to-top button.</p></div>
   </details>
   <details id="key-order">
     <summary>Will formatting change my keys or numbers?</summary>
@@ -171,14 +192,14 @@
     <summary>What's the difference between a general note and an API note?</summary>
     <div class="answer">
       <p>A general note is free text. An API note records a URL, the request, optional headers and the response, which is handy for keeping examples of how an API behaves.</p>
-      <p>Notes are shown as one list, newest change first. To group them by project and folder like the JSON Store, turn that on in <strong>Settings › Notes</strong>.</p>
-      <p>In an API note, a request or response that is valid JSON appears with syntax colors. Choose <strong>Edit</strong> for the plain editor and <strong>Done</strong> to go back. An empty request is hidden, and <strong>Add Request</strong> brings it back. Press <kbd>⌘F</kbd> or click the magnifier to find text inside the note.</p>
+      <p>Notes are shown as one list, which you can sort by name, date created or date modified, ascending or descending. To group them by project and folder like the JSON Store, turn that on in <strong>Settings › Notes</strong>. Deleting a note asks first.</p>
+      <p>In an API note, a request or response that is valid JSON appears with syntax colors. Choose <strong>Edit</strong> for the plain editor and <strong>Done</strong> to go back. Headers are hidden, and the request can be shown or hidden. An empty request is hidden, and <strong>Add Request</strong> brings it back. The URL and request have Copy buttons, and the response box grows with the response and has Copy, Export and Save to JSON Store buttons. Press <kbd>⌘F</kbd> or click the magnifier to find text inside the note.</p>
     </div>
   </details>
   <details id="note-export">
     <summary>How do I export or share a note?</summary>
     <div class="answer">
-      <p>Right-click a note and choose Export to save it as Markdown or text. Select several notes, or use a project's menu, to export many as Markdown.</p>
+      <p>Right-click a note and choose Export to save it as Markdown, text or PDF. Select several notes, or use a project's menu, to export many as Markdown.</p>
       <p>You can also drag a note to Finder. A general note becomes a <code>.txt</code> file, and an API note becomes a Postman collection that the API Client can import. Drag a document out of the JSON Store to get a <code>.json</code> file.</p>
     </div>
   </details>
@@ -200,9 +221,9 @@
   <details id="backup">
     <summary>How do I back up my library or move it to another Mac?</summary>
     <div class="answer">
-      <p>Open Settings and choose <strong>Export</strong> to write your whole library to one JSON file. On the other Mac, open Settings, choose <strong>Import</strong> and pick that file.</p>
+      <p>Open Settings and choose <strong>Export</strong> to write your whole library to one JSON file. It includes your saved APIs with their folders and environments. On the other Mac, open Settings, choose <strong>Import</strong> and pick that file.</p>
       <p>Import replaces the library on that Mac rather than merging with it, so export a backup there first if it has anything you want to keep.</p>
-      <p>The API Client keeps its saved APIs and environments separately from the library. To move them too, export each API Client project as a Postman collection and import it on the other Mac.</p>
+      <p>To move just one project's saved APIs, you can also export it as a Postman collection and import it on the other Mac.</p>
     </div>
   </details>
   <details id="restore">
@@ -222,7 +243,7 @@
   </details>
   <details id="clear-all">
     <summary>How do I erase everything?</summary>
-    <div class="answer"><p>Open Settings and choose <strong>Clear all data</strong>. This removes everything the app has saved and can't be undone, so export a backup first if you might need anything later.</p></div>
+    <div class="answer"><p>Open Settings and choose <strong>Clear all data</strong>. This removes everything the app has saved and can't be undone, so export a backup first if you might need anything later. The separate <strong>Clear</strong> button only resets the Tools screens' saved inputs.</p></div>
   </details>
   <details id="uninstall">
     <summary>How do I remove JSON Desk completely?</summary>
@@ -275,6 +296,14 @@
       <p>Secrets in headers and in the Auth tab are not kept in history. You can turn history off, or clear it, in <strong>Settings › Network</strong>.</p>
     </div>
   </details>
+  <details id="save-request">
+    <summary>How do I save a request?</summary>
+    <div class="answer"><p>Press <strong>Save</strong>. JSON Desk suggests a name, such as “GET products”, that you can edit. If the request is already saved, it tells you.</p></div>
+  </details>
+  <details id="get-body">
+    <summary>Why does a GET request have no Body tab?</summary>
+    <div class="answer"><p>A GET request doesn't carry a body, so the tab is hidden. Switch the method, for example to POST, and the Body tab appears.</p></div>
+  </details>
   <details id="move-all">
     <summary>How do I move many saved APIs at once?</summary>
     <div class="answer"><p>Right-click a project, or Unassigned, and choose <strong>Move All to Project</strong>. Everything in it moves, locked APIs included.</p></div>
@@ -301,7 +330,7 @@
   </details>
   <details id="tokens">
     <summary>Are my tokens and API keys stored?</summary>
-    <div class="answer"><p>Header values, auth values and environment variables you save are stored in the app's preferences as plain text, and are included in Postman collections you export. They never leave your Mac unless you send a request or share an export. Avoid saving live production secrets. Two things are never saved: the JWT screen's secret, and a login token the API Client uses automatically. Both stay in memory until you quit. Request history leaves out secrets in headers and the Auth tab, but it does keep request bodies and responses, so clear it if they contain sensitive data.</p></div>
+    <div class="answer"><p>Header values, auth values and environment variables you save are stored in the app's preferences as plain text, and are included in backups and in Postman collections you export. They never leave your Mac unless you send a request or share an export. Avoid saving live production secrets. Two things are never saved: the JWT screen's secret, and a login token the API Client uses automatically. Both stay in memory until you quit. Request history leaves out secrets in headers and the Auth tab, but it does keep request bodies and responses, so clear it if they contain sensitive data.</p></div>
   </details>
   <details id="timeout">
     <summary>A request fails or times out. What should I check?</summary>

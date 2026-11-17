@@ -217,7 +217,7 @@
           <div><h3>Auth in one tab</h3><p>Add Bearer, Basic or API-key headers from the Auth tab, using variables for the secrets.</p></div>
           <div><h3>Capture values</h3><p>Save a value from the response body with a JSONPath, or from a response header, into the active environment. Insert a saved value into a header with Add Header › From Variable.</p></div>
           <div><h3>Login token, handled</h3><p>When a response contains a login token, a bar offers to use it. Pick the field, such as <code>accessToken</code> or <code>refreshToken</code>, and later requests are sent with it automatically. It is kept in memory only, and "Not for this API" turns it off for one API.</p></div>
-          <div><h3>Saved APIs</h3><p>Organize requests as project, folder and API. Duplicate one, move a whole project with Move All to Project, or lock one so it can still be sent but not edited, renamed, moved or deleted.</p></div>
+          <div><h3>Saved APIs</h3><p>Organize requests as project, folder and API. Save suggests a name such as “GET products” that you can edit. Duplicate one, move a whole project with Move All to Project, or lock one so it can still be sent but not edited, renamed, moved or deleted.</p></div>
           <div><h3>Request history</h3><p>The clock button lists your last 50 requests with their responses. Load one, or save it to Saved APIs. Secrets in headers and the Auth tab are not kept.</p></div>
           <div><h3>Read the response</h3><p>See headers, time and size. Search the body, and click a line to copy its value. Large responses show in full.</p></div>
           <div><h3>Save what you find</h3><p>Send a JSON response to the JSON Store, or right-click a saved API and choose Save as Note to keep the request and response together.</p></div>
@@ -316,7 +316,7 @@
               </div>
               <div class="feature" id="f-explorer">
                 <h4>Explorer</h4>
-                <p>Browse a document as a collapsible tree, a table, or raw text, and search keys and values. Right-click a tree row to copy its value, key or path.</p>
+                <p>Browse a document as a collapsible tree, a table, or raw text, and search keys and values. The tree and table are read-only, but you can select and copy text, and right-click a tree row to copy its value, key or path.</p>
               </div>
               <div class="feature" id="f-compare">
                 <h4>Compare</h4>
@@ -332,7 +332,7 @@
               <h3>Library <span>5 screens</span></h3>
               <div class="feature" id="f-store">
                 <h4>JSON Store</h4>
-                <p>Keep documents organized as project, folder and document, with tags, favorites, locking, search, and drag and drop. Create, rename and delete folders, even empty ones, and turn the Unassigned group into a project by naming it.</p>
+                <p>Keep documents organized as project, folder and document, with tags, favorites, locking, search, and drag and drop. Create, rename and delete folders, even empty ones. Name the Unassigned group to turn it into a project, or delete it. A document you move leaves its old folder behind.</p>
               </div>
               <div class="feature" id="f-schema">
                 <h4>Schema</h4>
@@ -347,9 +347,9 @@
                 <h4>Notes</h4>
                 <div>
                   <p>Write general notes in free text, or API notes that record a URL, request, optional headers and the response you got back.</p>
-                  <p>Show notes as one list sorted by when you last changed them, or group them by project and folder like the JSON Store. Add favourites and tags, and lock a note so it can be read and copied but not changed.</p>
-                  <p>In an API note, a request or response that is valid JSON gets the Formatter's syntax colors. Press <kbd>⌘F</kbd> or the magnifier to find text inside the note, with matching lines highlighted.</p>
-                  <p>Export one note, several, or a whole project's notes as Markdown or text. An API note can be reopened in the API Client, and its response can be copied, exported or saved to the JSON Store.</p>
+                  <p>Show notes as one list, or group them by project and folder like the JSON Store (in Settings, off by default). Sort by name, date created or date modified, add favourites and tags, and lock a note so it can be read and copied but not changed. Deleting a note asks first.</p>
+                  <p>In an API note, a request or response that is valid JSON gets the Formatter's syntax colors, and the URL and request have Copy buttons. The response box grows with the response. Press <kbd>⌘F</kbd> or the magnifier to find text inside the note, with matching lines highlighted.</p>
+                  <p>Export one note, several, or a whole project's notes as Markdown or text, or as a PDF laid out as clean white pages with each note on a new page. An API note can be reopened in the API Client, and its response can be copied, exported or saved to the JSON Store.</p>
                 </div>
               </div>
               <div class="feature" id="f-deleted">
@@ -391,7 +391,7 @@
                 <h4>Make it yours</h4>
                 <div>
                   <p>Theme, accent color, code font size and line wrapping. Default formatter options, request timeout, whether cookies are kept between requests, the screen to open on launch, the splash screen, and the app walkthrough.</p>
-                  <p>Change any keyboard shortcut. Choose which cards show on a project's dashboard, whether notes are grouped by project and folder, whether documents and notes appear in Spotlight, and whether the API Client shows its cURL menu. Turn request history and input history on or off, and clear them. Set how long deleted items are kept, export or import a backup, or clear all data.</p>
+                  <p>Change any keyboard shortcut. Choose which cards show on a project's dashboard, whether notes are grouped by project and folder, whether documents and notes appear in Spotlight, and whether the API Client shows its cURL menu. Turn request history and input history on or off, and clear them. Set how long deleted items are kept, export or import a backup, reset the Tools screens' saved inputs with Clear, or clear all data.</p>
                 </div>
               </div>
             </div>
@@ -455,15 +455,18 @@
         <div class="everywhere">
           <div><h3>Save to a project</h3><p>Save results from most screens straight into a project.</p></div>
           <div><h3>Drag files in</h3><p>Drop a text or JSON file onto any input editor to load it.</p></div>
-          <div><h3>Export and share</h3><p>Save any output as a file, PDF or image, or share it with AirDrop. Sort and duplicate documents and notes from their lists.</p></div>
+          <div><h3>Export and share</h3><p>Save any output as a file, PDF or image, or share it with AirDrop. Each export asks which folder to save in, then shows the full path with a Show in Finder button. Notes and JSON Store documents can be saved as PDF too. Sort documents and notes by name or date, and duplicate them from their lists.</p></div>
           <div><h3>Keyboard first</h3><p><kbd>⌘1</kbd>–<kbd>⌘9</kbd> and <kbd>⌥⌘1</kbd>–<kbd>⌥⌘5</kbd> jump to screens, <kbd>⌘K</kbd> opens the command palette, <kbd>⌘F</kbd> searches the current editor or the open note, and <kbd>⌘/</kbd> lists every shortcut. Change any of them in Settings.</p></div>
-          <div><h3>Search everything</h3><p><kbd>⌘K</kbd> also searches your documents, notes, saved requests and API Client requests. Turn on Spotlight in Settings to find documents and notes from outside the app. Locked items are never included.</p></div>
+          <div><h3>Search everything</h3><p><kbd>⌘K</kbd> also searches your documents, notes, saved requests and API Client requests. Turn on Spotlight in Settings to find documents and notes from outside the app. Locked items are never included. Every search box has a small cross to clear it.</p></div>
           <div><h3>Select several</h3><p><kbd>⌘</kbd>-click or <kbd>⇧</kbd>-click to pick several items, then right-click to lock, move, favourite, export or delete them.</p></div>
           <div><h3>Windows and tabs</h3><p>Open several windows or tabs with File › New Window or New Tab. They share your library, and the app remembers window position and pane sizes. Toolbars adapt to a narrow window.</p></div>
           <div><h3>Undo a delete</h3><p>Deleting a document, note or project shows an Undo. Everything also waits in Recently Deleted.</p></div>
           <div><h3>Drag files out</h3><p>Drag a document from the JSON Store to Finder for a <code>.json</code> file. A note becomes a text file, or a Postman collection for API notes.</p></div>
           <div><h3>History on every tool</h3><p>The Formatter, Validator, Explorer, Compare, JSONPath, Converter and Generator each have a History button with that screen's last 50 inputs. Click one to bring it back. Turn it off or clear it in Settings.</p></div>
           <div><h3>Keeps your place</h3><p>Switching screens keeps your work, and the Tools screens remember what you last entered.</p></div>
+          <div><h3>Hide the sidebar</h3><p>Use the button at the top left of the window, <strong>View › Hide Sidebar</strong>, or <kbd>⌃⌘S</kbd> when you want the whole window for the editor.</p></div>
+          <div><h3>Native menus</h3><p><strong>File</strong> opens, imports and exports. <strong>Edit</strong> has Find in Editor. <strong>View</strong> sets the sidebar, inspector, code text size, line wrapping and theme. <strong>Go</strong> lists every screen, and <strong>Help</strong> has the walkthrough, in-app help and shortcuts.</p></div>
+          <div><h3>Built for big files</h3><p>Editors and read-only panes are native text views with line numbers, so long files scroll smoothly. Long outputs have a scroll-to-top button.</p></div>
           <div><h3>A walkthrough to start</h3><p>A nine-slide walkthrough appears the first time you open the app. Open it again from Help › App Walkthrough.</p></div>
         </div>
       </div>
