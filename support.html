@@ -54,6 +54,7 @@
           <li><a href="#getting-started">Getting started</a></li>
           <li><a href="#your-data">Your library</a></li>
           <li><a href="#api-client">API Client</a></li>
+          <li><a href="#utilities">Utilities</a></li>
           <li><a href="#outside">Menu bar and Shortcuts</a></li>
           <li><a href="#report">Reporting a bug</a></li>
         </ol>
@@ -72,6 +73,7 @@
   <a class="g-workspace" href="#getting-started"><strong>Getting started</strong><span>Formats, opening files, shortcuts and exporting</span></a>
   <a class="g-library" href="#your-data"><strong>Your library</strong><span>Folders, notes, backups, recovery and deleting</span></a>
   <a class="g-tools" href="#api-client"><strong>API Client</strong><span>Environments, imports, tokens and timeouts</span></a>
+  <a class="g-tools" href="#utilities"><strong>Utilities</strong><span>Unix time, QR codes, hashes, TOTP and more</span></a>
   <a class="g-settings" href="#outside"><strong>Menu bar and Shortcuts</strong><span>Using JSON Desk without opening it</span></a>
 </div>
 
@@ -98,7 +100,7 @@
   </details>
   <details id="export">
     <summary>How do I export or share a result?</summary>
-    <div class="answer"><p>Use the Export menu on any output to save it as a file, PDF or image, or to share it through the macOS share menu, including AirDrop. Most screens can also save their result straight into a project.</p><p>Every export asks which folder to save in, starting in the last one you used. Afterwards, the message shows the full path with a <strong>Show in Finder</strong> button.</p><p>Notes and JSON Store documents can be saved as PDF too: right-click and choose Export. Each note starts on a new page, with its title, method and URL, then the request, headers and response in colored, indented blocks on a clean white page. If you export several notes, JSON Desk asks whether to save one file or one file per note.</p></div>
+    <div class="answer"><p>Use the Export menu on any output to save it as a file, PDF or image, or to share it through the macOS share menu, including AirDrop. Notes, JSON Store documents and QR codes also have a <strong>Share</strong> item that opens the standard share sheet. Most screens can also save their result straight into a project.</p><p>Every export asks which folder to save in, starting in the last one you used. Afterwards, the message shows the full path with a <strong>Show in Finder</strong> button.</p><p>Notes and JSON Store documents can be saved as PDF too: right-click and choose Export. Each note starts on a new page, with its title, method and URL, then the request, headers and response in colored, indented blocks on a clean white page. If you export several notes, JSON Desk asks whether to save one file or one file per note.</p></div>
   </details>
   <details id="shortcuts-keys">
     <summary>What are the keyboard shortcuts, and can I change them?</summary>
@@ -106,7 +108,7 @@
       <table class="table">
         <thead><tr><th>Shortcut</th><th>What it does</th></tr></thead>
         <tbody>
-          <tr><td><kbd>⌘1</kbd>–<kbd>⌘9</kbd>, <kbd>⌥⌘1</kbd>–<kbd>⌥⌘5</kbd></td><td>Jump to a screen</td></tr>
+          <tr><td><kbd>⌘1</kbd>–<kbd>⌘9</kbd>, <kbd>⌥⌘1</kbd>–<kbd>⌥⌘7</kbd></td><td>Jump to a screen</td></tr>
           <tr><td><kbd>⌘K</kbd></td><td>Open the command palette to reach any screen or action</td></tr>
           <tr><td><kbd>⌘N</kbd></td><td>Start a new item</td></tr>
           <tr><td><kbd>⌘F</kbd></td><td>Search the current editor or output, or inside the open note in Notes</td></tr>
@@ -127,7 +129,7 @@
   </details>
   <details id="walkthrough">
     <summary>Where is the welcome walkthrough?</summary>
-    <div class="answer"><p>A nine-slide walkthrough appears the first time you open the app, with Back, Next and Skip. To see it again, choose <strong>Help › App Walkthrough…</strong> or open it from <strong>Settings › General</strong>.</p></div>
+    <div class="answer"><p>A nine-slide walkthrough, with numbered steps and a tip on each slide, appears the first time you open the app, with Back, Next and Skip. To see it again, choose <strong>Help › App Walkthrough…</strong> or open it from <strong>Settings › General</strong>.</p></div>
   </details>
   <details id="windows">
     <summary>Can I open more than one window?</summary>
@@ -193,7 +195,7 @@
     <div class="answer">
       <p>A general note is free text. An API note records a URL, the request, optional headers and the response, which is handy for keeping examples of how an API behaves.</p>
       <p>Notes are shown as one list, which you can sort by name, date created or date modified, ascending or descending. To group them by project and folder like the JSON Store, turn that on in <strong>Settings › Notes</strong>. Deleting a note asks first.</p>
-      <p>In an API note, a request or response that is valid JSON appears with syntax colors. Choose <strong>Edit</strong> for the plain editor and <strong>Done</strong> to go back. Headers are hidden, and the request can be shown or hidden. An empty request is hidden, and <strong>Add Request</strong> brings it back. The URL and request have Copy buttons, and the response box grows with the response and has Copy, Export and Save to JSON Store buttons. Press <kbd>⌘F</kbd> or click the magnifier to find text inside the note.</p>
+      <p>In an API note, a request or response that is valid JSON appears with syntax colors. Choose <strong>Edit</strong> for the plain editor and <strong>Done</strong> to go back. The URL shows in one color, and Edit changes it. Headers are hidden, and the request can be shown or hidden. An empty request is hidden, and <strong>Add Request</strong> brings it back. The URL and request have Copy buttons, and the response box grows with the response and has Copy, Export and Save to JSON Store buttons. Press <kbd>⌘F</kbd> or click the magnifier to find text inside the note.</p>
     </div>
   </details>
   <details id="note-export">
@@ -330,7 +332,7 @@
   </details>
   <details id="tokens">
     <summary>Are my tokens and API keys stored?</summary>
-    <div class="answer"><p>Header values, auth values and environment variables you save are stored in the app's preferences as plain text, and are included in backups and in Postman collections you export. They never leave your Mac unless you send a request or share an export. Avoid saving live production secrets. Two things are never saved: the JWT screen's secret, and a login token the API Client uses automatically. Both stay in memory until you quit. Request history leaves out secrets in headers and the Auth tab, but it does keep request bodies and responses, so clear it if they contain sensitive data.</p></div>
+    <div class="answer"><p>Header values, auth values and environment variables you save are stored in the app's preferences as plain text, and are included in backups and in Postman collections you export. They never leave your Mac unless you send a request or share an export. Avoid saving live production secrets. Four things are never saved: the JWT screen's secret, the HMAC key and the TOTP secret in Utilities, and a login token the API Client uses automatically. They stay in memory until you quit. Request history leaves out secrets in headers and the Auth tab, but it does keep request bodies and responses, so clear it if they contain sensitive data.</p></div>
   </details>
   <details id="timeout">
     <summary>A request fails or times out. What should I check?</summary>
@@ -346,6 +348,43 @@
   <details id="network">
     <summary>Why does JSON Desk need network access?</summary>
     <div class="answer"><p>Only for the API Client. Requests go straight from your Mac to the address you enter. The app doesn't contact any other server, and has no analytics of its own.</p></div>
+  </details>
+</div>
+
+<h2 id="utilities">Utilities</h2>
+<div class="faq">
+  <details id="utilities-list">
+    <summary>What is in Utilities?</summary>
+    <div class="answer">
+      <ul>
+        <li><strong>Unix Time:</strong> a timestamp, digits only, or a date picked from a calendar, shown as seconds, milliseconds, UTC, local time, relative time and ten time zones.</li>
+        <li><strong>UUID / ULID, Base64, URL and Unicode:</strong> generate IDs, and encode or decode text. The conversions match the Formatter's.</li>
+        <li><strong>Base64 Image:</strong> preview an image from a Base64 string.</li>
+        <li><strong>QR Code Generator, Hash, HMAC and TOTP.</strong></li>
+        <li><strong>Regex Tester:</strong> highlighted matches and capture groups.</li>
+        <li><strong>HTTP Status Codes:</strong> a reference of 71 codes grouped 1xx to 5xx, including common nginx and Cloudflare ones.</li>
+      </ul>
+      <p>Every tool except Unix Time and UUID / ULID has a <strong>Sample</strong> button that fills in example input.</p>
+    </div>
+  </details>
+  <details id="qr">
+    <summary>What can the QR Code Generator make?</summary>
+    <div class="answer"><p>A code for text or a link, a Wi-Fi network, an email or a phone number. Choose the error correction (L, M, Q or H) and a size of up to 2048 px. Copy the image, save it as a PNG, or use <strong>Share</strong> for the macOS share sheet.</p></div>
+  </details>
+  <details id="totp">
+    <summary>How does the TOTP tool work?</summary>
+    <div class="answer">
+      <p>Enter a secret key in Base32, hex or text, or paste an <code>otpauth://</code> link. Choose SHA-1, SHA-256, SHA-384, SHA-512 or MD5, 6 to 10 digits, and a period from 10 to 120 seconds. It shows the current code with a live countdown, plus the previous and next codes. You can also set a test time.</p>
+      <p>The tool also builds the <code>otpauth://</code> link and a QR code of it, so you can add the account to an authenticator app. On the first press, Sample selects SHA-1, 6 digits and 30 seconds. Every press after that generates a new random secret without changing the algorithm, digits or period you chose.</p>
+    </div>
+  </details>
+  <details id="hash-hmac">
+    <summary>Which hashes does it support, and can it check a signature?</summary>
+    <div class="answer"><p><strong>Hash</strong> supports MD5, SHA-1, SHA-256, SHA-384 and SHA-512. <strong>HMAC</strong> takes a key and an optional expected signature, and tells you whether they match.</p></div>
+  </details>
+  <details id="utilities-remember">
+    <summary>What do the Utilities remember?</summary>
+    <div class="answer"><p>The tool you last used and each tool's settings: encode or decode, uppercase, algorithm, digits, period, ID type and count, regex options, and the TOTP issuer and account. Secret keys and typed text are not remembered. The HMAC key and the TOTP secret are never saved.</p></div>
   </details>
 </div>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>JSON Desk: format, convert and test JSON on your Mac</title>
-  <meta name="description" content="JSON Desk is a free, native macOS app with fifteen JSON tools: a multi-format formatter, validator, explorer, diff, JSONPath, converter with model code in eight languages, API client, JWT tools, notes and a local library. No account, no analytics.">
+  <meta name="description" content="JSON Desk is a free, native macOS app with sixteen JSON tools: a multi-format formatter, validator, explorer, diff, JSONPath, converter with model code in eight languages, API client, JWT tools, utilities, notes and a local library. No account, no analytics.">
   <link rel="canonical" href="https://ashokarbad.github.io/JSNDeskWeb/">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#F5F6FB" media="(prefers-color-scheme: light)">
@@ -26,6 +26,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "JSON Desk",
+    "softwareVersion": "4.0",
     "operatingSystem": "macOS 14.0 or later",
     "applicationCategory": "DeveloperApplication",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -57,7 +58,7 @@
       <div class="wrap">
         <img class="hero-icon" src="icon.png" alt="JSON Desk app icon" width="96" height="96">
         <h1>Format, convert and test JSON on your Mac.</h1>
-        <p class="lede">Fifteen tools in one native window: a formatter that also reads XML, YAML and TOML, a converter that writes model code in eight languages, a full API client with environments and saved requests, and a library for your documents and notes. Nothing leaves your Mac unless you send it.</p>
+        <p class="lede">Sixteen tools in one native window: a formatter that also reads XML, YAML and TOML, a converter that writes model code in eight languages, a full API client with environments and saved requests, and a library for your documents and notes. Nothing leaves your Mac unless you send it.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://apps.apple.com/in/app/json-desk/id6827042635?mt=12">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
@@ -65,7 +66,7 @@
           </a>
           <a class="btn btn-quiet" href="#api-client">Explore the API Client</a>
         </div>
-        <p class="hero-meta">Free. Requires macOS 14 Sonoma or later.</p>
+        <p class="hero-meta">Version 4.0. Free. Requires macOS 14 Sonoma or later.</p>
 
         <div class="hero-stage">
           <div class="window" role="group" aria-label="Interactive example of the Converter screen">
@@ -81,7 +82,7 @@
                 <h4>Library</h4>
                 <ul class="g-lib"><li>JSON Store</li><li>Schema</li><li>Projects</li><li>Notes</li><li>Recently Deleted</li></ul>
                 <h4>Tools</h4>
-                <ul class="g-tools"><li>Generator</li><li class="on">Converter</li><li>API Client</li><li>Mock Generator</li><li>JWT</li></ul>
+                <ul class="g-tools"><li>Generator</li><li class="on">Converter</li><li>API Client</li><li>Mock Generator</li><li>JWT</li><li>Utilities</li></ul>
               </div>
               <div class="app-main">
                 <div class="app-toolbar">
@@ -265,7 +266,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Everything in the sidebar</h2>
-          <p>Fifteen screens, grouped the way you work: edit in the Workspace, keep things in the Library, and reach for Tools when you need them.</p>
+          <p>Sixteen screens, grouped the way you work: edit in the Workspace, keep things in the Library, and reach for Tools when you need them.</p>
         </div>
 
         <div class="directory">
@@ -293,6 +294,7 @@
               <li><a href="#f-api">API Client</a></li>
               <li><a href="#f-mock">Mock Generator</a></li>
               <li><a href="#f-jwt">JWT</a></li>
+              <li><a href="#f-utilities">Utilities</a></li>
             </ul>
             <p>Settings</p>
             <ul class="g-settings">
@@ -348,7 +350,7 @@
                 <div>
                   <p>Write general notes in free text, or API notes that record a URL, request, optional headers and the response you got back.</p>
                   <p>Show notes as one list, or group them by project and folder like the JSON Store (in Settings, off by default). Sort by name, date created or date modified, add favourites and tags, and lock a note so it can be read and copied but not changed. Deleting a note asks first.</p>
-                  <p>In an API note, a request or response that is valid JSON gets the Formatter's syntax colors, and the URL and request have Copy buttons. The response box grows with the response. Press <kbd>⌘F</kbd> or the magnifier to find text inside the note, with matching lines highlighted.</p>
+                  <p>In an API note, a request or response that is valid JSON gets the Formatter's syntax colors, the URL shows in one color (Edit to change it), and the URL and request have Copy buttons. The response box grows with the response. Press <kbd>⌘F</kbd> or the magnifier to find text inside the note, with matching lines highlighted.</p>
                   <p>Export one note, several, or a whole project's notes as Markdown or text, or as a PDF laid out as clean white pages with each note on a new page. An API note can be reopened in the API Client, and its response can be copied, exported or saved to the JSON Store.</p>
                 </div>
               </div>
@@ -359,10 +361,10 @@
             </div>
 
             <div class="dir-group g-tools">
-              <h3>Tools <span>5 screens</span></h3>
+              <h3>Tools <span>6 screens</span></h3>
               <div class="feature" id="f-generator">
                 <h4>Generator</h4>
-                <p>Create sample JSON from an example document or from a JSON Schema.</p>
+                <p>Create sample JSON from an example document or from a JSON Schema. The Sample button fills in ready-made test JSON, a different one on each press (user, product, blog post, weather or order), as an example record or a schema to match the chosen source.</p>
               </div>
               <div class="feature" id="f-converter">
                 <h4>Converter</h4>
@@ -382,6 +384,16 @@
               <div class="feature" id="f-jwt">
                 <h4>JWT</h4>
                 <p>Decode tokens, verify HS256, HS384 and HS512 signatures, and create signed tokens. The secret is never saved to disk.</p>
+              </div>
+              <div class="feature" id="f-utilities">
+                <h4>Utilities</h4>
+                <div>
+                  <p>A list of small tools to pick from: <strong>Unix Time</strong> (a timestamp, digits only, or a date picked from a calendar, shown as seconds, milliseconds, UTC, local time, relative time and ten time zones), <strong>UUID / ULID</strong>, <strong>Base64</strong>, <strong>URL</strong> and <strong>Unicode</strong> encode and decode, and a <strong>Base64 Image</strong> preview.</p>
+                  <p>A <strong>QR Code Generator</strong> for text or a link, a Wi-Fi network, an email or a phone number, with error correction L, M, Q or H and a size of up to 2048 px. Copy the image, save it as a PNG, or share it.</p>
+                  <p><strong>Hash</strong> (MD5, SHA-1, SHA-256, SHA-384, SHA-512) and <strong>HMAC</strong>, with an optional expected signature to compare against. A <strong>TOTP</strong> tool makes two-factor codes from a Base32, hex or text secret, or a pasted <code>otpauth://</code> link, with SHA-1, SHA-256, SHA-384, SHA-512 or MD5, 6 to 10 digits, a period from 10 to 120 seconds, a live countdown, the previous and next codes, an optional test time, and the <code>otpauth://</code> link and a QR code of it for adding the account to an authenticator app.</p>
+                  <p>A <strong>Regex Tester</strong> with highlighted matches and capture groups, and an <strong>HTTP Status Codes</strong> reference of 71 codes grouped 1xx to 5xx, including common nginx and Cloudflare ones.</p>
+                  <p>Every tool except Unix Time and UUID / ULID has a Sample button that fills in example input. The tool you last used and each tool's settings are remembered. Secret keys and typed text are not.</p>
+                </div>
               </div>
             </div>
 
@@ -455,8 +467,8 @@
         <div class="everywhere">
           <div><h3>Save to a project</h3><p>Save results from most screens straight into a project.</p></div>
           <div><h3>Drag files in</h3><p>Drop a text or JSON file onto any input editor to load it.</p></div>
-          <div><h3>Export and share</h3><p>Save any output as a file, PDF or image, or share it with AirDrop. Each export asks which folder to save in, then shows the full path with a Show in Finder button. Notes and JSON Store documents can be saved as PDF too. Sort documents and notes by name or date, and duplicate them from their lists.</p></div>
-          <div><h3>Keyboard first</h3><p><kbd>⌘1</kbd>–<kbd>⌘9</kbd> and <kbd>⌥⌘1</kbd>–<kbd>⌥⌘5</kbd> jump to screens, <kbd>⌘K</kbd> opens the command palette, <kbd>⌘F</kbd> searches the current editor or the open note, and <kbd>⌘/</kbd> lists every shortcut. Change any of them in Settings.</p></div>
+          <div><h3>Export and share</h3><p>Save any output as a file, PDF or image, or share it with AirDrop. Notes, JSON Store documents and QR codes also have a Share item that opens the standard macOS share sheet. Each export asks which folder to save in, then shows the full path with a Show in Finder button. Notes and JSON Store documents can be saved as PDF too. Sort documents and notes by name or date, and duplicate them from their lists.</p></div>
+          <div><h3>Keyboard first</h3><p><kbd>⌘1</kbd>–<kbd>⌘9</kbd> and <kbd>⌥⌘1</kbd>–<kbd>⌥⌘7</kbd> jump to screens, <kbd>⌘K</kbd> opens the command palette, <kbd>⌘F</kbd> searches the current editor or the open note, and <kbd>⌘/</kbd> lists every shortcut. Change any of them in Settings.</p></div>
           <div><h3>Search everything</h3><p><kbd>⌘K</kbd> also searches your documents, notes, saved requests and API Client requests. Turn on Spotlight in Settings to find documents and notes from outside the app. Locked items are never included. Every search box has a small cross to clear it.</p></div>
           <div><h3>Select several</h3><p><kbd>⌘</kbd>-click or <kbd>⇧</kbd>-click to pick several items, then right-click to lock, move, favourite, export or delete them.</p></div>
           <div><h3>Windows and tabs</h3><p>Open several windows or tabs with File › New Window or New Tab. They share your library, and the app remembers window position and pane sizes. Toolbars adapt to a narrow window.</p></div>
@@ -467,7 +479,7 @@
           <div><h3>Hide the sidebar</h3><p>Use the button at the top left of the window, <strong>View › Hide Sidebar</strong>, or <kbd>⌃⌘S</kbd> when you want the whole window for the editor.</p></div>
           <div><h3>Native menus</h3><p><strong>File</strong> opens, imports and exports. <strong>Edit</strong> has Find in Editor. <strong>View</strong> sets the sidebar, inspector, code text size, line wrapping and theme. <strong>Go</strong> lists every screen, and <strong>Help</strong> has the walkthrough, in-app help and shortcuts.</p></div>
           <div><h3>Built for big files</h3><p>Editors and read-only panes are native text views with line numbers, so long files scroll smoothly. Long outputs have a scroll-to-top button.</p></div>
-          <div><h3>A walkthrough to start</h3><p>A nine-slide walkthrough appears the first time you open the app. Open it again from Help › App Walkthrough.</p></div>
+          <div><h3>A walkthrough to start</h3><p>A nine-slide walkthrough, with numbered steps and a tip on each slide, appears the first time you open the app. Open it again from Help › App Walkthrough.</p></div>
         </div>
       </div>
     </section>
@@ -485,7 +497,7 @@
             <li><strong>No account, no analytics</strong><span>There's nothing to sign up for, and no tracking or third-party code in the app.</span></li>
             <li><strong>Stored on your Mac</strong><span>Your library lives in one file inside the app's sandbox, and you can export a backup at any time.</span></li>
             <li><strong>Network only when you send</strong><span>The app connects to the internet only for API Client requests, to the URLs you enter.</span></li>
-            <li><strong>JWT secrets aren't saved</strong><span>The secret you use to verify or sign a token is never written to disk.</span></li>
+            <li><strong>Secrets aren't saved</strong><span>The JWT secret, HMAC key and TOTP secret you type are never written to disk.</span></li>
           </ul>
         </div>
       </div>

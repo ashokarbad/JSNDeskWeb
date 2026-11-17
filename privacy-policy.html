@@ -91,11 +91,11 @@
   <tbody>
     <tr><td>Your library</td><td>Documents, projects, folders, tags, notes, requests, schemas, JSONPath queries and Recently Deleted items, in a single file named <code>store.json</code>.</td></tr>
     <tr><td>API Client saved APIs and environments</td><td>Saved APIs, their folders, and environments with their variable values, in the app's preferences (macOS user defaults).</td></tr>
-    <tr><td>Settings and recent tool inputs</td><td>Your settings, and the last values you entered on the Tools screens, in the app's preferences.</td></tr>
+    <tr><td>Settings and recent tool inputs</td><td>Your settings, and the last values you entered on the Tools screens, in the app's preferences. For Utilities, the tool you last used and each tool's settings (such as algorithm, digits, period and TOTP issuer and account) are remembered. Secret keys and typed text are not.</td></tr>
     <tr><td>Input history</td><td>The last 50 inputs of the Formatter, Validator, Explorer, Compare, JSONPath, Converter and Generator, saved in a file on your Mac a moment after you stop typing. Text that isn't JSON is not recorded on the JSON screens. Turn it off or clear it in Settings › Data.</td></tr>
     <tr><td>API Client request history</td><td>The last 50 requests you sent, with their responses, kept across restarts. Secrets in headers and the Auth tab are not kept. Turn it off or clear it in Settings › Network.</td></tr>
     <tr><td>A recovery copy, only if needed</td><td>If the library file can't be read, the app saves a copy named <code>store.unreadable-&lt;timestamp&gt;.json</code> before starting a fresh library, so nothing is silently overwritten.</td></tr>
-    <tr><td>JWT secrets</td><td>Not stored. The secret you type to verify or sign a token is kept in memory and never written to disk.</td></tr>
+    <tr><td>JWT, HMAC and TOTP secrets</td><td>Not stored. The JWT secret, the HMAC key and the TOTP secret you type are kept in memory and never written to disk.</td></tr>
     <tr><td>API Client login token</td><td>Not stored. A login token you choose to use automatically is kept in memory only and is forgotten when you quit the app.</td></tr>
   </tbody>
 </table>
@@ -111,7 +111,7 @@
 <h2 id="network">Network connections</h2>
 <p>JSON Desk connects to the internet in one situation: when you send a request from the API Client. The request goes directly from your Mac to the address you entered, with the headers and body you wrote and with your environment's variables filled in. It does not pass through any server of ours.</p>
 <p>The server you contact receives that request and your IP address, and its own privacy policy applies to what it does with them. Only send requests to services you trust and are allowed to use.</p>
-<p>Importing cURL commands, Postman collections and OpenAPI or Swagger files happens on your Mac. The app does not fetch anything when it imports them. API notes are records you write yourself; JSON Desk never sends them. When a server sets cookies, the API Client keeps them for your later requests. You can turn this off and clear the cookies in Settings.</p>
+<p>Everything in Utilities, including hashes, HMAC, TOTP codes, QR codes, Unix time and the regex tester, is computed on your Mac and never uses the network. Importing cURL commands, Postman collections and OpenAPI or Swagger files happens on your Mac. The app does not fetch anything when it imports them. API notes are records you write yourself; JSON Desk never sends them. When a server sets cookies, the API Client keeps them for your later requests. You can turn this off and clear the cookies in Settings.</p>
 
 <h2 id="clipboard">The clipboard and the menu bar</h2>
 <p>The menu bar icon reads your clipboard only when you choose one of its actions, such as Format or Validate. Formatting and minifying put the result back on your clipboard. The clipboard's contents are processed on your Mac and are not sent anywhere or stored by the app.</p>
@@ -124,7 +124,7 @@
 
 <h2 id="files">Files, export and sharing</h2>
 <p>JSON Desk asks macOS for access to a file only when you choose it: when you open a file with JSON Desk from Finder, drop a file on an editor, import a backup, collection or OpenAPI file, or export a backup or output. Every export asks which folder to save in, and the app can read or write only the files and folders you pick.</p>
-<p>You can also drag a document or note out of JSON Desk into Finder, which saves it as a file. When you share an output, for example by AirDrop or Mail, macOS sends it to the destination you choose. We never receive it. A backup contains your whole library, including saved APIs with their folders and environments, so store and share it with the same care as the original.</p>
+<p>You can also drag a document or note out of JSON Desk into Finder, which saves it as a file. When you share an output, a note, a document or a QR code through the Share item, for example by AirDrop or Mail, macOS sends it to the destination you choose. We never receive it. A backup contains your whole library, including saved APIs with their folders and environments, so store and share it with the same care as the original.</p>
 
 <h2 id="deleting">Deleting your data</h2>
 <ul>
